@@ -6,17 +6,24 @@
     <title>Petshop</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav class="header__nav">
         <div class="header__logo">
+          <img src="../assets/title.svg" alt="" />
           <h4>PetShop</h4>
         </div>
         <ul class="header__menu">
           <li><a href="#proizvodi">Proizvodi</a></li>
           <li><a href="#">Admin</a></li>
-          <li><a href="#">Prijavite se</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
         <ul class="header__menu-mobile">
           <li>
@@ -32,11 +39,36 @@
           Hrana i igracke <br />
           Za sve zivotinje
         </h2>
-        <button>Prijavite se</button>
+        <button onclick="openForm()">Prijavite se</button>
       </div>
       <div class="hero__right">
         <img src="../assets/bg-pets.png" alt="hero-photo" />
       </div>
     </section>
+
+    <div class="login__popup" id="popup">
+      <form action="#" class="form__container">
+        <h1>Prijava</h1>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required />
+
+        <label for="password"><b>Lozinka</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        />
+
+        <button type="button" onclick="closeForm()" class="btn">
+          Prijavite se
+        </button>
+        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
+      </form>
+    </div>
+
+    <section class="products"></section>
+    <script src="../js/index.js"></script>
   </body>
 </html>
