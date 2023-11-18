@@ -1,4 +1,6 @@
 @import url("../css/login.css");
+@import url("../css/products.css");
+@import url("../css/product.css");
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +30,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
+
 .header__logo img {
   width: 100px;
   height: 100px;
@@ -77,7 +81,9 @@ body {
 .hero {
   display: flex;
   max-width: 1280px;
-  margin: 150px auto;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 0px;
   overflow: hidden;
   justify-content: space-between;
   padding-left: 30px;

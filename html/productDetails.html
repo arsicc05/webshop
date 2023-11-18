@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petshop</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div>
+          <a href="index.html" class="header__logo">
+            <img src="../assets/title.svg" alt="" />
+            <h4>PetShop</h4>
+          </a>
+        </div>
+        <ul class="header__menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+        <ul class="header__menu-mobile">
+          <li>
+            <img src="../assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="login__popup" id="popup">
+      <form action="#" class="form__container">
+        <h1>Prijava</h1>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required />
+
+        <label for="password"><b>Lozinka</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        />
+
+        <button type="button" onclick="closeForm()" class="btn">
+          Prijavite se
+        </button>
+        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
+      </form>
+    </div>
+
+    <section class="product" id="proizvod">
+      <div class="product__left-side">
+        <img src="../assets/hranaPsi.jpg" alt="petshop" />
+      </div>
+      <div class="product__right-side">
+        <h1>Pedigre - Hrana za pse</h1>
+        <p class="cena">RSD 500</p>
+        <p class="opis-proizvoda">
+          Pedigre je potpuna hrana za ishranu odraslih pasa svih rasa umerenog
+          nivoa fizičke aktivnosti. Hrana je napravljena od pažljivo biranih
+          sastojaka vrhunskog kvaliteta. Sadrži sve vitamine i minerale
+          neophodne za pravilnu i uravnoteženu ishranu pasa. Sadrži visok
+          procenat proteina životinjskog porekla – najmanje 65%. Obezbeđuje
+          vašim ljubimcima dobro zdravlje, jake kosti, zdrave zube, lepu i
+          sjajnu dlaku. Dostupno u pakovanjima: 20kg
+        </p>
+        <button>Dodaj u korpu</button>
+      </div>
+    </section>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

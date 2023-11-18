@@ -1,0 +1,47 @@
+.product {
+  display: flex;
+  max-width: 1280px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  gap: 30px;
+}
+.product .product__left-side {
+  width: 600px;
+  height: 500px;
+}
+.product .product__left-side img {
+  width: 100%;
+  height: 100%;
+}
+.product .product__right-side {
+  flex: 1;
+}
+.product .product__right-side h1 {
+  font-size: 60px;
+}
+.product .product__right-side .cena {
+  font-size: 50px;
+}
+.product .product__right-side .opis-proizvoda {
+  font-size: 22px;
+}
+.product .product__right-side button {
+  padding: 20px;
+  border-radius: 36px;
+  outline: none;
+  border: none;
+  background: #862b2b;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  max-width: 212px;
+  margin-top: 30px;
+}

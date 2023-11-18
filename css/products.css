@@ -1,0 +1,39 @@
+.products .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 30px;
+}
+.products .grid .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+.products .grid .card a {
+  text-decoration: none;
+  color: black;
+}
+.products .grid .card .cena {
+  color: grey;
+  font-size: 22px;
+}
+.products .grid .card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #862b2b;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 30px;
+}
+.products .grid .card img {
+  width: 100%;
+}
