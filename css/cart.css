@@ -1,0 +1,111 @@
+.cart__main {
+  margin-top: 30px;
+  position: relative;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+.cart__main .cart__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.cart__main .cart__header h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2f3841;
+}
+.cart__main .cart__header h5 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #862b2b;
+  cursor: pointer;
+}
+.cart__main .cart__items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart__item .slika__proizvoda {
+  width: 150px;
+  height: 150px;
+}
+.cart__item .slika__proizvoda img {
+  width: 100%;
+}
+.brojac {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7px;
+}
+.brojac .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #862b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+.brojac .broj {
+  font-size: 25px;
+  font-weight: 500;
+  color: #202020;
+}
+.cena {
+  font-size: 30px;
+  font-weight: 500;
+}
+.ukupna__cena {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+}
+.ukupna__cena .cena__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.ukupna__cena .cena__head .ukupno {
+  font-size: 22px;
+  font-weight: 700;
+  color: #202020;
+}
+.ukupna__cena .cena__head .broj__proizvoda {
+  font-size: 16px;
+  font-weight: 500;
+  color: #909090;
+  line-height: 10px;
+}
+.ukupna__cena .cena__head .ukupna__cena__proizvoda {
+  font-size: 36px;
+  font-weight: 700;
+  color: #202020;
+}
+.ukupna__cena button {
+  padding: 20px;
+  border-radius: 36px;
+  outline: none;
+  border: none;
+  background: #862b2b;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  max-width: 100%;
+  margin-top: 30px;
+}

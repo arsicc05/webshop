@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petshop</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div>
+          <a href="index.html" class="header__logo">
+            <img src="../assets/title.svg" alt="" />
+            <h4>PetShop</h4>
+          </a>
+        </div>
+        <ul class="header__menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+        <div class="cart">
+          <a href="cart.html"
+            ><img src="../assets/shopping-cart-icon.png" alt="cart"
+          /></a>
+        </div>
+        <ul class="header__menu-mobile">
+          <li>
+            <img src="../assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="cart__main">
+      <div class="cart__header">
+        <h3>Korpa</h3>
+        <h5>Uklonite sve</h5>
+      </div>
+
+      <div class="cart__items">
+        <div class="cart__item">
+          <div class="slika__proizvoda">
+            <img src="../assets/hranaPsi.jpg" />
+          </div>
+
+          <div class="opis">
+            <h1>Pedigre hrana za pse</h1>
+          </div>
+
+          <div class="brojac">
+            <div class="btn">+</div>
+            <div class="broj">1</div>
+            <div class="btn">-</div>
+          </div>
+
+          <div class="cena">RSD 500</div>
+        </div>
+
+        <div class="cart__item">
+          <div class="slika__proizvoda">
+            <img src="../assets/hranaPsi.jpg" />
+          </div>
+
+          <div class="opis">
+            <h1>Pedigre hrana za pse</h1>
+          </div>
+
+          <div class="brojac">
+            <div class="btn">+</div>
+            <div class="broj">2</div>
+            <div class="btn">-</div>
+          </div>
+
+          <div class="cena">RSD 500</div>
+        </div>
+      </div>
+
+      <div class="ukupna__cena">
+        <div class="cena__head">
+          <div>
+            <div class="ukupno">Ukupno</div>
+            <div class="broj__proizvoda">2 proizvoda</div>
+          </div>
+
+          <div class="ukupna__cena__proizvoda">RSD 1500</div>
+        </div>
+
+        <button>Zavrsi kupovinu</button>
+      </div>
+    </section>
+  </body>
+</html>
