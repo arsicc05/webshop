@@ -1,0 +1,25 @@
+.about__us {
+  display: flex;
+  max-width: 1280px;
+  margin: auto;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.about__us h1 {
+  font-size: 40px;
+  font-weight: 800;
+}
+.about__us h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.about__us p {
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+}
+.about__us p a {
+  text-decoration: none;
+  color: black;
+}

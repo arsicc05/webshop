@@ -1,0 +1,420 @@
+{
+  "petShop": {
+    "naziv": "Code PetShop",
+    "logo": "https://i.imgur.com/zUrrGam.jpeg",
+    "adresa": "Trg Pavla Stojkovića 12, Nis, 18000",
+    "telefon": "067-5555-555",
+    "godinaOtvaranja": "2001",
+    "proizvodi": "-MNVEu6iMr2EFlQO6TW60"
+  },
+  "proizvodi": {
+    "-MNVEu6iMr2EFlQO6TW60": {
+      "-MNQftJa4rskH-dBqF9Z0": {
+        "naziv": "Bit premium",
+        "kratakOpis": "Kvalitetna hrana za pse temelj je zdravlja naših ljubimaca.",
+        "detaljanOpis": "Potpuna hrana za pse s jagnjećim mesom za odrasle pse svih rasa, pogodno za pse s osetljivim varenjem.Pogodnosti: Osetljiv digestivni sistem,Zdrava koža i sjajna dlaka,Podrška imunitetu i opštem stanju organizma SASTAV: jagnjetina 35 % (dehidrirana 20 %, otkošćeno 15 %), pirinač, pileća mast (konzervisana mešanim tokoferolima), riža mekinje, sušene jabuke, lososovo ulje (2 %), hidrolizovana pileća džigerica, pivski kvasac, kolagen, oklopi rakova (izvor glukozamina, 210 mg/kg), hrskavice (izvor hondroitina, 150 mg/kg), bilja i voća (karanfilić, citrusi, ruzmarin, kurkuma, 120 mg/kg), manan-oligosaharidi (120 mg/kg), voćni oligosaharidi (90 mg/kg), ekstrakt juke (Mojave yucca) (90 mg/kg), sušena kamilica (80 mg/kg), Zelena dagnja (izvor glikozaminoglikana, 50 mg/kg), sušena borovnica (50 mg/kg). Proizvedeno po proizvođačkoj deklaraciji. ",
+        "cena": "3200",
+        "tip": "Hrana za pse",
+        "slike": [
+          "https://rufusandcoco.com.au/cdn/shop/articles/shutterstock_1633060150_3f685410-6507-4ca8-b04b-1da6ead2121d.jpg?v=1591228100",
+          "https://media.self.com/photos/6202a91fde6d5915e16f9646/4:3/w_2560%2Cc_limit/GettyImages-1303308191.jpg",
+          "https://www.thesprucepets.com/thmb/-cGrh2a5TCHiw0_nhwzi-S1uKXY=/2119x0/filters:no_upscale():strip_icc()/preparing-natural-food-for-pets-1137592020-52ac6351f68e499fb22594085222ca60.jpg"
+        ],
+        "prosecnaOcena": 8.8,
+        "ocene": [
+          10,
+          9,
+          8,
+          7,
+          10
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z1": {
+        "naziv": "Remi cat",
+        "kratakOpis": "Mačkama kao tipičnim mesojedima je potrebna hrana bogata kvalitetnim belančevinama, prilagođena njihovoj brzoj probavi. Dnevno Vaš kućni tigar može pojesti čak 12-18 manjih obroka! ",
+        "detaljanOpis": "Remi cat  je suva hrana namenjena odraslim mačkama od 1 do 7 godine starosti. Ukusna hrana sa jagnjetinom je napravljena od svežeg mesa i sadrži važne vitamine i minerale. Posebno formulisana granula koja je hrskava spolja, a iznutra punjena mesnim sadržajem održava zdravlje zuba. Potpuno izbalansirana ishrana, ne sadrži dodatke veštačkih aroma. Kompletna ishrana za odrasle mačke. Prirodna ulja pomažu da vaša mačka ima sjajno krzno. Uravnoteženi sadržaj minerala pomaže u održavanju zdravlja urinarnog trakta mačke. Vitamin A i taurin pomažu u održavanju savršenog vida.",
+        "cena": "1700",
+        "tip": "Hrana za macke",
+        "slike": [
+          "https://i.imgur.com/wHFIbzJ.jpeg",
+          "https://www.hepper.com/wp-content/uploads/2021/10/Gray-cat-eating-from-the-bowl_Skrypnykov-Dmytro_Shutterstock.jpg",
+          "https://image.petmd.com/files/styles/978x550/public/cat-eyeing-food.jpg"
+        ],
+        "prosecnaOcena": 6.71,
+        "ocene": [
+          10,
+          3,
+          4,
+          7,
+          10,
+          6,
+          7
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z2": {
+        "naziv": "Flamingo loptica za pse",
+        "kratakOpis": "FLAMINGO Igračka za pse Lopta sa zvoncem, gumena 5cm, raznih boja ",
+        "detaljanOpis": "Lopta sa zvukom, prirodna guma, 9.5cm Dostupne su lopte u narandzastoj i zutoj boji",
+        "cena": "700",
+        "tip": "igracke",
+        "slike": [
+          "https://i.imgur.com/YKKSGiL.jpeg",
+          "https://i.imgur.com/v0E90ob.jpeg",
+          "https://i.imgur.com/3I5Gwof.jpeg",
+          "https://i.imgur.com/YKKSGiL.jpeg"
+        ],
+        "prosecnaOcena": 5.87,
+        "ocene": [
+          1,
+          2,
+          5,
+          6,
+          3,
+          9,
+          10,
+          3,
+          4,
+          7,
+          10,
+          6,
+          7,
+          4,
+          8,
+          9
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z3": {
+        "naziv": "Transporter Atlas",
+        "kratakOpis": "Transporter za pse se najčešće kupuje za putovanja avionom i za kratke izlete do veterinara. Obratite pažnju na vaše potrebe i izaberite Atlas transporter kao rešenje za vašeg psa ili macku",
+        "detaljanOpis": "Plastični transporter prihvaćen od strane većine avio kompanija. Zaključava se sa “snap” klipovima. Obezbeđuje dobru cirkulaciju vazduha. Poseduje metalna vrata i dve činije. Poseduje 2 posude za skladištenje. Poseduje ručicu pozicioniranu na kovu koja se izvlači. ",
+        "cena": "4500",
+        "tip": "transporteri",
+        "slike": [
+          "https://petzooshop.rs/shop/wp-content/uploads/2017/12/Ferplast-transporter-Atlas-Car-Mini1.jpg",
+          "https://gladnipsic.com.hr/wp-content/uploads/2020/11/transporter-atlas-car-e1606410893620.jpg",
+          "https://www.zoocity.hr/media/catalog/product/cache/3e64ba88bd29473e14083a708e79c587/f/e/ferplast_atlas_60_2.jpg"
+        ],
+        "prosecnaOcena": 7.53,
+        "ocene": [
+          9,
+          4,
+          7,
+          10,
+          6,
+          7,
+          4,
+          8,
+          9,
+          10,
+          9,
+          8,
+          7
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z4": {
+        "naziv": "StarSnack Strips",
+        "kratakOpis": "Jagnjetina i pirinac ",
+        "detaljanOpis": "Sadrži ukusne grickalice sa ukusom mesa za vašeg psa. Uvek su omiljena poslastica, jer dolaze bez dodatka šećera.Sa ukusom jagnjetine",
+        "cena": "120",
+        "tip": "poslastice",
+        "slike": [
+          "https://images.onlinepets.com/product-images/catalog/nobby_starsnack_soft_duck_strips_eend_183205_1000_none.jpg",
+          "https://www.nobby.de/media/image/6c/e3/87/50670_1NRndH1BTkoZGV.jpg",
+          "https://image.petmd.com/files/styles/863x625/public/CANS_dogsmiling_379727605.jpg"
+        ],
+        "prosecnaOcena": 4.8,
+        "ocene": [
+          1,
+          2,
+          4,
+          7,
+          10
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z5": {
+        "naziv": "Royal dog",
+        "kratakOpis": "Hrana za Vašeg ljubimca, da se osjeća kao dio kraljevske porodice",
+        "detaljanOpis": "Bez konzervansa, veštačkih boja, pojačivača ukusa, pesticida. Bez žitarica i skroba. Meso divljači odlikuje nizak udeo masnoća i holesterola, zato je izuzetno pogodno za pse koji zbog određenih zdravstvenih stanja moraju ograničiti unos masti, npr. psi koji imaju poremećen rad jetre i/ili gušterače. Takođe se zbog velike količine gvožđa preporučuje anemičnim životinjama.Osim gvožđa meso divljači smatra se odličnim izvorom fosfora, kalijuma i pojedinih vitamina B.Vrhunska kvalitet ovog mesa proizlazi iz činjenice da te životinje žive u slobodnoj prirodi, biraju biljke i plodove kojima se hrane, piju vodu s prirodnih izvora, slobodno se kreću i lišene su stresova prisutnih kod životinja uzgajanih u intenzivnom uzgoju.",
+        "cena": "2900",
+        "tip": "Hrana za pse",
+        "slike": [
+          "https://rufusandcoco.com.au/cdn/shop/articles/shutterstock_1633060150_3f685410-6507-4ca8-b04b-1da6ead2121d.jpg?v=1591228100",
+          "https://previews.123rf.com/images/masarik512/masarik5121911/masarik512191100083/135468964-pretty-cute-corgi-dog-wearing-royal-costume-crown-on-white-background-yawn-and-looks-away.jpg",
+          "https://www.shutterstock.com/image-photo/portrait-majestic-corgi-dog-robe-600nw-2064756818.jpg"
+        ],
+        "prosecnaOcena": 8.8,
+        "ocene": [
+          9,
+          8,
+          8,
+          9,
+          10
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z6": {
+        "naziv": "MONGE Fresh",
+        "kratakOpis": "Jagnjetina u konzervi",
+        "detaljanOpis": "Ukusna pašteta sa ukusom jagnjetine. Bez boja, konzervanasa i hidrogenizovanih masti. Ukusan recept napravljen u Italiji, bez glutena, idealan je za pse svih rasa.",
+        "cena": "460",
+        "tip": "Hrana za pse",
+        "slike": [
+          "https://www.stfrancisvh.com/wp-content/uploads/2020/01/what-if-your-dog-eats-something-poisonous.jpg",
+          "https://www.bil-jac.com/media/2sxlmg0n/typeofeater-image.jpg?anchor=center&mode=crop&width=1024&height=512",
+          "https://rawandfresh.com.au/cdn/shop/products/complete-beef-product-bowl.jpg?v=1612317992"
+        ],
+        "prosecnaOcena": 6.0,
+        "ocene": [
+          5,
+          7,
+          3,
+          9,
+          6
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z7": {
+        "naziv": "Biskies",
+        "kratakOpis": "Suva hrana za mačke sa ukusom mesa, piletine i povrća",
+        "detaljanOpis": "Konzervirana hrana za mačke sa piletinom, komadi u sosu. astojci: meso i mesni proizvodi ( 5% piletina). Žitarice, biljni proizvodi, minerali. Analitički sastav: vlaga 81%, sirovi protein 7%, sirovo ulje i masti: 3%, sirovi pepeo 2%, sirovo vlakno 0,5%",
+        "cena": "230",
+        "tip": "Hrana za macke",
+        "slike": [
+          "https://miaustore.com/uk/wp-content/uploads/sites/3/2016/10/tumblr_nn97susNy71r6obhbo2_400-300x209-1.jpg",
+          "https://media-be.chewy.com/wp-content/uploads/2019/01/21172631/iStock-996091048-AaronAmat.jpg",
+          "https://frontpagemeews.com/wp-content/uploads/2019/05/Webp.net-resizeimage-750x500.png"
+        ],
+        "prosecnaOcena": 7.6,
+        "ocene": [
+          6,
+          8,
+          9,
+          7,
+          8
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z8": {
+        "naziv": "Gourmet",
+        "kratakOpis": "Hrana za mačiće",
+        "detaljanOpis": "Potpuna balansirana hrana za mačiće, starosti od 4 do 12 meseci. Royal Canin Kitten je balansirana formula koja prati dinamiku rasta mačića koji se nakon 4-og meseca usporava. Jačanje imuniteta obezbeđuje se jedinstvenim kompleksom antioksidanata (vitamin E i C, lutein, taurin) i manan-oligosaharidima koji stimulišu stvaranje antitela. Održava higijenu usta i zuba nakon izbijanja stalih zubića, usporava stvaranje zubnog kamenca zahvaljujući apsorberu kalcijuma.",
+        "cena": "3719",
+        "tip": "Hrana za macke",
+        "slike": [
+          "https://www.pumpkin.care/wp-content/uploads/2022/11/how-much-to-feed-a-kitten.jpg",
+          "https://www.dutch.com/cdn/shop/articles/shutterstock_1789035002.jpg?v=1641503740",
+          "https://smb.ibsrv.net/imageresizer/image/blog_images/1200x1200/10087/91160/0447463001544828845.jpg"
+        ],
+        "prosecnaOcena": 7.4,
+        "ocene": [
+          9,
+          7,
+          8,
+          8,
+          5
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF9Z9": {
+        "naziv": "PAWISE Mahalica",
+        "kratakOpis": "Omiljena igračka za Vašeg omiljenog ljubimca. Štap koji hrabri mačke na lov.",
+        "detaljanOpis": "Drveni štap, dužine 47cm, izduženom igračkom na kraju. Igračka je zakačena na crnu špagu, dužine 20 cm, tako da se lagano prilagođava svakom pokretu. Igračke dolaze u raznim bojama.",
+        "cena": "809",
+        "tip": "igracke",
+        "slike": [
+          "https://www.pet-centar.rs/cdn/shop/files/all4paws_whisker_fiesta_igracka_za_macka_mahalica_sombrero__109cm_1200x1200.jpg?v=1695893854",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaONLIzd6KNAI5CeeX2UdTzh65GaRxVlnhjJnVHV301DWGNwoMU_XvrOosbUIkZWXKmUg&usqp=CAU",
+          "https://shop-cdn-m.mediazs.com/bilder/6/400/368803_pla_ginger_cookie_cat_dangler_fg_3495_6.jpg",
+          "https://www.pet-centar.rs/cdn/shop/files/pawise_igracka_za_macke_mahalica_musica_900x.jpg?v=1695894059"
+        ],
+        "prosecnaOcena": 7.0,
+        "ocene": [
+          7,
+          8,
+          6,
+          7,
+          9,
+          5
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF1Z0": {
+        "naziv": "Plišanac",
+        "kratakOpis": "Plišana igračka za Vašeg člana porodice.",
+        "detaljanOpis": "Izrazito meke, plišane igračke raznih boja, koje služe kao jastuk ili igračka, postaće Vašem ljubimcu omiljena stvar koju će da nosi po kući. Dužina 30 cm, težina 7g.",
+        "cena": "1300",
+        "tip": "igracke",
+        "slike": [
+          "https://www.oddoigracke.rs/kategorije/53/Plisane-zivotinje-1.jpg",
+          "https://www.aksa.rs/files/thumbs/files/images/slike_proizvoda/thumbs_350/A066162_350_350px.jpg",
+          "https://mamibebe-c1c3.kxcdn.com/wp-content/uploads/2023/02/HO2678-580x580.jpg",
+          "https://www.malidrugari.rs/imgProizvodi/992/velika%20plisana%20igracka%20majmuncic.jpeg"
+        ],
+        "prosecnaOcena": 8.0,
+        "ocene": [
+          9,
+          9,
+          8,
+          7,
+          5,
+          7,
+          1,
+          2
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF1Z1": {
+        "naziv": "Transporter Nomad",
+        "kratakOpis": "Transporter Nomad za AVIO transport, XXX Large",
+        "detaljanOpis": "Napravljen je od kvalitetne plastike izdržljive za Vašeg ljubimca. Poseduje kvalitetnu ručkicu koja je izrađena da podrži različite težine Vašeg ljubimca. Ima sitne rešetke i obezbeđuje visok protok vazduha za ljubimca. Izrađen je u originalnom obliku u kom će Vaš ljubimac imati dovoljno prostora.",
+        "cena": "6700",
+        "tip": "transporteri",
+        "slike": [
+          "https://static.ananas.rs/assets/categories/pet_shop/psi/Oprema_za_pse/transporteri_za_pse.jpg",
+          "https://www.petshop-x.hr/admin/uploads/products/thumbs/thumb2_trotter_2.png",
+          "https://www.pet-centar.hr/BinaryLibrary/9e18c5cf-c979-4ffb-8c42-1fd4919c0181/Resized_7802e59e-6add-47f0-9281-260d6c423313/220_220.jpg"
+        ],
+        "prosecnaOcena": 7.53,
+        "ocene": [
+          9,
+          4,
+          7,
+          10,
+          6,
+          7,
+          4,
+          8,
+          9,
+          10,
+          9,
+          8,
+          7
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF1Z2": {
+        "naziv": "CURVER Transporter PetLife Rattan",
+        "kratakOpis": "Plastični transporter za putovanja bilo koje vrste",
+        "detaljanOpis": "Napravljen je od kvalitetne plastike izdržljive za Vašeg ljubimca. Poseduje kvalitetnu ručkicu koja je izrađena da podrži različite težine Vašeg ljubimca. Ima rupice koje obezbeđuju visok protok vazduha za ljubimca. Izrađen je u obliku korpe, sa rešetkama iznad koje dodatno omogućavaju protok vazduha i osvjetljenosti za Vašeg ljubimca.",
+        "cena": "8099",
+        "tip": "transporteri",
+        "slike": [
+          "https://images.onlinepets.com/product-images/catalog/curver_reismand_misty_hond_170590_1500_none.jpg",
+          "https://www.mascotaplanet.com/27179/9399.jpg",
+          "https://content.rozetka.com.ua/goods/images/big_tile/242700491.jpg"
+        ],
+        "prosecnaOcena": 7.5,
+        "ocene": [
+          9,
+          8,
+          4,
+          7,
+          9,
+          10,
+          8,
+          5
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF1Z3": {
+        "naziv": "DentaStix",
+        "kratakOpis": "Poslastica DentaStix Large Breed za žvakanje",
+        "detaljanOpis": "Dodatna hrana za mlade pse i pse velikih pasmina preko 4 meseca starosti, preko 25 kg. Idealno je prilagoðena zubalu velikih rasa. Svojim jedinstvenim sastavom, oblikom i mehanizmom delovanja temeljito čisti zube i desni. DentaStix je jednostavna, a istovremeno ukusna dnevna njega. Temeljito čisti zube i desni te smanjuje mogućnost nastanka kamenca čak do 80%.",
+        "cena": "320",
+        "tip": "poslastice",
+        "slike": [
+          "https://i.cbc.ca/1.4548890.1519404511!/fileImage/httpImage/171350002.jpg",
+          "https://www.rover.com/blog/wp-content/uploads/iStock-1355303263-960x540.jpg",
+          "https://spallandharveyanimalhospital.ca/wp-content/uploads/2022/09/dog-dentistry-1024x670.jpeg"
+        ],
+        "prosecnaOcena": 4.8,
+        "ocene": [
+          1,
+          2,
+          4,
+          7,
+          10
+        ],
+        "uKorpi": false
+      },
+      "-MNQftJa4rskH-dBqF1Z4": {
+        "naziv": "TRIXIE",
+        "kratakOpis": "Crna čokolada, izrazito bogata vlaknima i proteinima za Vašeg psa kao najbolja poslastica.",
+        "detaljanOpis": "U sastav ulaze mleko i mlečni proizvodi (42%), šećer, ulje i biljne masnoće, te kakao. Uputstvo za hranjenje: nevno možete dozirati 2-6 komadića, zavisno od veličine psa prilikom šetnje, kao nagradu ili kao energetski dodatak uobičajenom obroku.",
+        "cena": "250",
+        "tip": "poslastice",
+        "slike": [
+          "https://annandalevets.com.au/wp-content/uploads/2018/11/download-1000x675.jpeg",
+          "https://thesavvysitter.org/wp-content/uploads/2023/01/image.png",
+          "https://addictedtodates.com/wp-content/uploads/2019/01/vegan-milk-chocolate-recipe-500x375.jpg"
+        ],
+        "prosecnaOcena": 4.8,
+        "ocene": [
+          1,
+          2,
+          4,
+          7,
+          10
+        ],
+        "uKorpi": false
+      }
+    }
+  },
+  "korisnici": {
+    "-MNQo55Aw0tLdwahMZMK": {
+      "korisnickoIme": "petar",
+      "lozinka": "petar123",
+      "ime": "Petar",
+      "prezime": "Petrović",
+      "email": "ppetrovic@webd.com",
+      "datumRodjenja": "1994-10-22",
+      "adresa": "Gogoljeva 39, Novi Sad,21000",
+      "telefon": "061-456-456"
+    },
+    "-MNQoCqEXydVTdCNV47C": {
+      "korisnickoIme": "jovana",
+      "lozinka": "jovana123",
+      "ime": "Jovana",
+      "prezime": "Jovanović",
+      "email": "jjovanovic@webd.com",
+      "datumRodjenja": "1982-05-05",
+      "adresa": "Jug Bogdana 14, Zrenjanin,350902",
+      "telefon": "062-321-4321"
+    },
+    "-MNQoJw2p9rci4Rm_rYY": {
+      "korisnickoIme": "marko",
+      "lozinka": "marko123",
+      "ime": "Marko",
+      "prezime": "Marković",
+      "email": "mmarkovic@webd.com",
+      "datumRodjenja": "1990-09-17",
+      "adresa": "Cara Lazara 9a, Beograd,11000",
+      "telefon": "063-876-7876"
+    },
+    "-MNQoR-5erkWvcm8Hdnk": {
+      "korisnickoIme": "filip",
+      "lozinka": "filip123",
+      "ime": "Filip",
+      "prezime": "Filipović",
+      "email": "ffilipovic@webd.com",
+      "datumRodjenja": "1973-03-10",
+      "adresa": "Solunska 5, Novi Sad, 21000",
+      "telefon": "064-1459-159"
+    },
+    "-MNQoWt_gDudX5W8TLQj": {
+      "korisnickoIme": "tijana",
+      "lozinka": "tijana123",
+      "ime": "Tijana",
+      "prezime": "Tijanić",
+      "email": "ttijanic@webd.com",
+      "datumRodjenja": "1998-06-29",
+      "adresa": "Ružićeva 32, Zrenjanin, 350902",
+      "telefon": "065-753-753"
+    }
+  }
+}

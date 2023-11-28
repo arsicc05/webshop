@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petshop</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="header__nav">
+        <div>
+          <a href="index.html" class="header__logo">
+            <img src="../assets/title.svg" alt="" />
+            <h4>PetShop</h4>
+          </a>
+        </div>
+        <ul class="header__menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+        <div class="cart">
+          <a href="cart.html"
+            ><img src="../assets/shopping-cart-icon.png" alt="cart"
+          /></a>
+        </div>
+        <ul class="header__menu-mobile">
+          <li>
+            <img src="../assets/menu.svg" alt="menu" />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="products__list">
+      <h1>Lista proizvoda</h1>
+
+      <div class="table__container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Naziv</th>
+              <th>Cena u RSD</th>
+              <th>Kategorija</th>
+              <th>Prosecna ocena</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pedigre-Hrana za pse</td>
+              <td>500</td>
+              <td>Hrana za pse</td>
+              <td>5.0</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Pedigre-Hrana za pse</td>
+              <td>300</td>
+              <td>Hrana za pse</td>
+              <td>5.0</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Pedigre-Hrana za pse</td>
+              <td>800</td>
+              <td>Hrana za pse</td>
+              <td>5.0</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Pedigre-Hrana za pse</td>
+              <td>900</td>
+              <td>Hrana za pse</td>
+              <td>5.0</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn__add-products" onclick="openFormAddProducts()">
+        Dodaj Proizvod
+      </button>
+      <div class="hidden" id="add-products">
+        <div class="add__products">
+          <p class="close-add-popup" onclick="closeFormAddProducts()">
+            &#10006;
+          </p>
+          <form action="#" method="post" enctype="multipart/form-data">
+            <div>
+              <label for="productName">Naziv:</label>
+              <input type="text" id="productName" name="productName" required />
+            </div>
+
+            <div>
+              <label for="shortDescription">Kratak opis:</label>
+              <textarea
+                id="shortDescription"
+                name="shortDescription"
+                rows="2"
+                required
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="detailedDescription">Detaljan opis:</label>
+              <textarea
+                id="detailedDescription"
+                name="detailedDescription"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="price">Cena:</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="productType">Kategorija:</label>
+              <select id="productType" name="productType" required>
+                <option value="Hrana za pse">Hrana za pse</option>
+                <option value="Hrana za macke">Hrana za macke</option>
+                <option value="Igracke">Igracke</option>
+                <option value="Transporteri">Transporteri</option>
+                <option value="Poslastice">Poslastice</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="productImages">Slika proizvoda:</label>
+              <input
+                type="file"
+                id="productImages"
+                name="productImages"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <button class="btn__add-products" onclick="closeFormAddProducts()">
+              Dodaj proizvod
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div id="overlay"></div>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
