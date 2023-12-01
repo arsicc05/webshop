@@ -24,20 +24,22 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#">Admin</a></li>
+          <li><a href="#admin__links">Admin</a></li>
           <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
-        <div class="cart">
-          <a href="cart.html"
-            ><img src="../assets/shopping-cart-icon.png" alt="cart"
-          /></a>
+        <div class="menu-cart">
+          <ul class="header__menu-mobile">
+            <li>
+              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+            </li>
+          </ul>
+          <div class="cart">
+            <a href="cart.html"
+              ><img src="../assets/shopping-cart-icon.png" alt="cart"
+            /></a>
+          </div>
         </div>
-        <ul class="header__menu-mobile">
-          <li>
-            <img src="../assets/menu.svg" alt="menu" />
-          </li>
-        </ul>
       </nav>
     </header>
     <section class="hero">
@@ -131,6 +133,51 @@
         </div>
       </div>
     </section>
+    <footer class="footer">
+      <div>
+        <img src="../assets/title.svg" alt="" class="footer__img" />
+      </div>
+      <div>
+        <h2>Linkovi</h2>
+        <ul class="links">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Admin</h2>
+        <ul class="links" id="admin__links">
+          <li><a href="ListOfProducts.html">Proizvodi</a></li>
+
+          <li><a href="listOfUsers.html">Korisnici</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Zapratite nas</h2>
+        <ul class="links social">
+          <li>
+            <a href="#">
+              <img src="../assets/square-facebook.svg" alt="" /> Facebook</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../assets/square-instagram.svg" alt="" /> Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../assets/square-twitter.svg" alt="" /> Twitter</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="after__footer">
+      <p>Made by FTN &copy;</p>
+    </div>
     <script src="../js/index.js"></script>
   </body>
 </html>

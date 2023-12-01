@@ -24,22 +24,45 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#">Admin</a></li>
+          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
-        <div class="cart">
-          <a href="cart.html"
-            ><img src="../assets/shopping-cart-icon.png" alt="cart"
-          /></a>
+        <div class="menu-cart">
+          <ul class="header__menu-mobile">
+            <li>
+              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+            </li>
+          </ul>
+          <div class="cart">
+            <a href="cart.html"
+              ><img src="../assets/shopping-cart-icon.png" alt="cart"
+            /></a>
+          </div>
         </div>
-        <ul class="header__menu-mobile">
-          <li>
-            <img src="../assets/menu.svg" alt="menu" />
-          </li>
-        </ul>
       </nav>
     </header>
+    <div class="login__popup" id="popup">
+      <form action="#" class="form__container">
+        <h1>Prijava</h1>
 
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required />
+
+        <label for="password"><b>Lozinka</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        />
+
+        <button type="button" onclick="closeForm()" class="btn">
+          Prijavite se
+        </button>
+        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
+      </form>
+    </div>
     <section class="about__us">
       <h1>
         Dobrodošli u Code PetShop - vašu destinaciju za sve potrebno kućnim
@@ -71,5 +94,51 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </section>
+    <footer class="footer">
+      <div>
+        <img src="../assets/title.svg" alt="" class="footer__img" />
+      </div>
+      <div>
+        <h2>Linkovi</h2>
+        <ul class="links">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Admin</h2>
+        <ul class="links" id="admin__links">
+          <li><a href="ListOfProducts.html">Proizvodi</a></li>
+
+          <li><a href="listOfUsers.html">Korisnici</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Zapratite nas</h2>
+        <ul class="links social">
+          <li>
+            <a href="#">
+              <img src="../assets/square-facebook.svg" alt="" /> Facebook</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../assets/square-instagram.svg" alt="" /> Instagram</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../assets/square-twitter.svg" alt="" /> Twitter</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="after__footer">
+      <p>Made by FTN &copy;</p>
+    </div>
+    <script src="../js/index.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
 .table__container table {
   font-size: 20px;
   background-color: rgb(242, 190, 125);
+  width: 100%;
 }
 .table__container table thead {
   background-color: rgb(228, 169, 96);
@@ -34,6 +35,10 @@
   text-align: left;
 
   min-width: 170px;
+}
+.table__container table tr td a {
+  text-decoration: none;
+  color: black;
 }
 .table__container table tr td img {
   width: 22px;

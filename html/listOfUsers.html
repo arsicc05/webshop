@@ -63,47 +63,111 @@
         <button type="button" class="btn" onclick="closeForm()">Nazad</button>
       </form>
     </div>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
+    <section class="products__list">
+      <h1>Lista korisnika</h1>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+      <div class="table__container">
+        <table>
+          <thead>
+            <tr>
+              <th>Korisnicko ime</th>
+              <th>Ime</th>
+              <th>Prezime</th>
+              <th>Email</th>
+              <th>Telfon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="user.html">petar</a></td>
+              <td>Petar</td>
+              <td>Petrovic</td>
+              <td>ppetrovic@webd.com</td>
+              <td>061-456-456</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
 
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
-
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
-    </div>
-
-    <section class="product" id="proizvod">
-      <div class="product__left-side">
-        <img src="../assets/hranaPsi.jpg" alt="petshop" />
+            <tr>
+              <td>petar</td>
+              <td>Petar</td>
+              <td>Petrovic</td>
+              <td>ppetrovic@webd.com</td>
+              <td>061-456-456</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>petar</td>
+              <td>Petar</td>
+              <td>Petrovic</td>
+              <td>ppetrovic@webd.com</td>
+              <td>061-456-456</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td>petar</td>
+              <td>Petar</td>
+              <td>Petrovic</td>
+              <td>ppetrovic@webd.com</td>
+              <td>061-456-456</td>
+              <td class="table__buttons">
+                <img src="../assets/edit.png" alt="" />
+                <img src="../assets/delete.png" alt="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="product__right-side">
-        <h1>Pedigre - Hrana za pse</h1>
-        <p class="cena">RSD 500</p>
-        <p class="opis-proizvoda">
-          Pedigre je potpuna hrana za ishranu odraslih pasa svih rasa umerenog
-          nivoa fizičke aktivnosti. Hrana je napravljena od pažljivo biranih
-          sastojaka vrhunskog kvaliteta. Sadrži sve vitamine i minerale
-          neophodne za pravilnu i uravnoteženu ishranu pasa. Sadrži visok
-          procenat proteina životinjskog porekla – najmanje 65%. Obezbeđuje
-          vašim ljubimcima dobro zdravlje, jake kosti, zdrave zube, lepu i
-          sjajnu dlaku. Dostupno u pakovanjima: 20kg
-        </p>
-        <button>Dodaj u korpu</button>
+      <button class="btn__add-products" onclick="openFormAddProducts()">
+        Dodaj Korisnika
+      </button>
+      <div class="hidden" id="add-products">
+        <div class="add__products">
+          <p class="close-add-popup" onclick="closeFormAddProducts()">
+            &#10006;
+          </p>
+          <form action="#" method="post" enctype="multipart/form-data">
+            <div>
+              <label for="userName">Korisnicko ime:</label>
+              <input type="text" id="userName" name="userName" required />
+            </div>
+
+            <div>
+              <label for="Ime">Ime:</label>
+              <input id="Ime" name="Ime" required />
+            </div>
+
+            <div>
+              <label for="Prezime">Prezime:</label>
+              <input id="Prezime" name="Prezime" required />
+            </div>
+
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div>
+              <label for="broj">Broj Telefona:</label>
+              <input type="tel" id="broj" name="broj" required />
+            </div>
+
+            <button class="btn__add-products" onclick="closeFormAddProducts()">
+              Dodaj korisnika
+            </button>
+          </form>
+        </div>
       </div>
     </section>
+    <div id="overlay"></div>
     <footer class="footer">
       <div>
         <img src="../assets/title.svg" alt="" class="footer__img" />

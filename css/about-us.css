@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 20px;
   justify-content: center;
+  padding: 20px;
 }
 .about__us h1 {
   font-size: 40px;
@@ -22,4 +23,27 @@
 .about__us p a {
   text-decoration: none;
   color: black;
+}
+@media (max-width: 600px) {
+  iframe {
+    width: 100%;
+  }
+  .about__us h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 500px) {
+  .about__us h1 {
+    font-size: 30px;
+  }
+  .about__us h2 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .about__us p {
+    font-size: 20px;
+  }
+  iframe {
+    height: 300px;
+  }
 }

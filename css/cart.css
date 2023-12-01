@@ -3,6 +3,7 @@
   position: relative;
   padding-left: 50px;
   padding-right: 30px;
+  margin-bottom: 177px;
 }
 .cart__main .cart__header {
   display: flex;
@@ -30,6 +31,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.cart__item .remove__item {
+  width: 30px;
+  height: 30px;
 }
 .cart__item .slika__proizvoda {
   width: 150px;
@@ -71,7 +76,9 @@
   width: 300px;
   flex-direction: column;
   position: absolute;
-  right: 0;
+  right: 5px;
+  margin-bottom: 40px;
+  margin-right: 5px;
 }
 .ukupna__cena .cena__head {
   display: flex;
@@ -108,4 +115,46 @@
   line-height: 23px;
   max-width: 100%;
   margin-top: 30px;
+}
+@media (max-width: 900px) {
+  .ukupna__cena {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cart__item {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+    padding: 30px;
+  }
+  .cart__item .slika__proizvoda {
+    width: 100%;
+    height: 100%;
+  }
+  .brojac .btn {
+    width: 30px;
+    height: 30px;
+  }
+  .ukupna__cena {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+@media only screen and (min-width: 319px) and (max-width: 426px) {
+  .cart__item .opis h1 {
+    font-size: 20px;
+  }
+  .cart__main .cart__header h3 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .cart__main .cart__header h5 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .cart__main .cart__items {
+    gap: 10px;
+  }
 }
