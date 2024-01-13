@@ -20,11 +20,10 @@
   border-radius: 25px;
 }
 
-.form__container input[type="text"],
-.form__container input[type="password"] {
+.form__container input {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 10px;
+  margin: 5px 0 5px 0;
   border: none;
   background: #f1f1f1;
 }
@@ -36,7 +35,7 @@
 }
 
 .form__container .btn {
-  padding: 20px;
+  padding: 15px;
   border-radius: 36px;
   outline: none;
   border: none;
@@ -46,7 +45,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 23px;
-  width: 212px;
+  width: 150px;
   margin-top: 15px;
 }
 

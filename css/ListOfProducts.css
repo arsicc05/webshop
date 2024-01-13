@@ -29,12 +29,12 @@
 }
 .table__container table tr th {
   text-align: left;
-  min-width: 170px;
+  min-width: 200px;
 }
 .table__container table tr td {
   text-align: left;
 
-  min-width: 170px;
+  min-width: 200px;
 }
 .table__container table tr td a {
   text-decoration: none;
@@ -64,6 +64,14 @@
   max-width: 212px;
 }
 .hidden {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+}
+.hidden-edit {
   display: none;
   position: fixed;
   top: 50%;
@@ -121,6 +129,18 @@ select {
   z-index: 1000;
 }
 .hidden .add__products .close-add-popup {
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  padding: 3px;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.hidden-edit .add__products .close-add-popup {
   border-radius: 100px;
   width: 40px;
   height: 40px;

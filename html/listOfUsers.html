@@ -42,32 +42,68 @@
         </div>
       </nav>
     </header>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
+    <div>
+      <div class="login__popup" id="popup">
+        <form action="#" class="form__container" id="prijava">
+          <h1>Prijava</h1>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
 
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+          <label for="password"><b>Lozinka</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+          <div>
+            <button type="button" onclick="closeForm()" class="btn">
+              Prijavite se
+            </button>
+            <button type="button" class="btn" onclick="closeForm()">
+              Nazad
+            </button>
+          </div>
+          <p onclick="openReg()">Registrujte se</p>
+        </form>
+        <div>
+          <form id="registracija" style="display: none" class="form__container">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" required /><br />
 
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" required /><br />
+
+            <label for="datumRodjenja">Datum rođenja:</label>
+            <input type="date" id="datumRodjenja" required /><br />
+
+            <label for="adresa">Adresa:</label>
+            <input type="text" id="adresa" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /><br />
+
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" required /><br />
+
+            <label for="korisnickoIme">Korisničko ime:</label>
+            <input type="text" id="korisnickoIme" required /><br />
+
+            <label for="lozinka">Lozinka:</label>
+            <input type="password" id="lozinka" required /><br />
+
+            <button type="submit" class="btn" id="submit">Potvrdi</button>
+          </form>
+        </div>
+      </div>
     </div>
+
     <section class="products__list">
       <h1>Lista korisnika</h1>
 
       <div class="table__container">
-        <table>
+        <table id="korisniciTable">
           <thead>
             <tr>
               <th>Korisnicko ime</th>
@@ -78,7 +114,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td><a href="user.html">petar</a></td>
               <td>Petar</td>
               <td>Petrovic</td>
@@ -88,41 +124,7 @@
                 <img src="../assets/edit.png" alt="" />
                 <img src="../assets/delete.png" alt="" />
               </td>
-            </tr>
-
-            <tr>
-              <td>petar</td>
-              <td>Petar</td>
-              <td>Petrovic</td>
-              <td>ppetrovic@webd.com</td>
-              <td>061-456-456</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>petar</td>
-              <td>Petar</td>
-              <td>Petrovic</td>
-              <td>ppetrovic@webd.com</td>
-              <td>061-456-456</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>petar</td>
-              <td>Petar</td>
-              <td>Petrovic</td>
-              <td>ppetrovic@webd.com</td>
-              <td>061-456-456</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -213,6 +215,109 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDSN0vbu-NWOLwJJHpAbhanlns666rGgRk",
+        authDomain: "petshop-200ae.firebaseapp.com",
+        databaseURL: "https://petshop-200ae-default-rtdb.firebaseio.com",
+        projectId: "petshop-200ae",
+        storageBucket: "petshop-200ae.appspot.com",
+        messagingSenderId: "332500787103",
+        appId: "1:332500787103:web:4b5ba921b52d4bce9f27aa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const korisniciRef = ref(db, "korisnici");
+      onValue(korisniciRef, (snapshot) => {
+        const korisnici = snapshot.val();
+        console.log(korisnici);
+      });
+      document.getElementById("submit").addEventListener("click", function (e) {
+        e.preventDefault();
+        var ime = document.getElementById("ime").value;
+        var prezime = document.getElementById("prezime").value;
+        var datumRodjenja = document.getElementById("datumRodjenja").value;
+        var adresa = document.getElementById("adresa").value;
+        var email = document.getElementById("email").value;
+        var telefon = document.getElementById("telefon").value;
+        var korisnickoIme = document.getElementById("korisnickoIme").value;
+        var lozinka = document.getElementById("lozinka").value;
+
+        var korisnik = {
+          ime: ime,
+          prezime: prezime,
+          datumRodjenja: datumRodjenja,
+          adresa: adresa,
+          email: email,
+          telefon: telefon,
+          korisnickoIme: korisnickoIme,
+          lozinka: lozinka,
+        };
+
+        set(ref(db, "korisnici/" + korisnickoIme), korisnik);
+
+        alert("Korisnik uspešno dodat u bazu!");
+      });
+
+      const korisniciTable = document.getElementById("korisniciTable");
+      const MAX_NAZIV_LENGTH = 10;
+      onValue(korisniciRef, (snapshot) => {
+        const korisnici = snapshot.val();
+
+        for (const korisnikKey in korisnici) {
+          const korisnik = korisnici[korisnikKey];
+
+          const trTag = document.createElement("tr");
+
+          const tdUSERNAME = document.createElement("td");
+          tdUSERNAME.textContent = korisnik.korisnickoIme;
+          trTag.appendChild(tdUSERNAME);
+
+          const tdIme = document.createElement("td");
+          tdIme.textContent = korisnik.ime;
+          trTag.appendChild(tdIme);
+
+          const tdPrezime = document.createElement("td");
+          tdPrezime.textContent = korisnik.prezime;
+          trTag.appendChild(tdPrezime);
+
+          const tdEmail = document.createElement("td");
+          tdEmail.textContent = korisnik.email;
+          trTag.appendChild(tdEmail);
+          const tdBroj = document.createElement("td");
+          tdBroj.textContent = korisnik.telefon;
+          trTag.appendChild(tdBroj);
+
+          korisniciTable.appendChild(trTag);
+
+          const tdButtons = document.createElement("td");
+          tdButtons.classList.add("table__buttons");
+
+          const editImg = document.createElement("img");
+          editImg.src = "../assets/edit.png";
+          editImg.alt = "Edit";
+          tdButtons.appendChild(editImg);
+
+          const deleteImg = document.createElement("img");
+          deleteImg.src = "../assets/delete.png";
+          deleteImg.alt = "Delete";
+          tdButtons.appendChild(deleteImg);
+
+          trTag.appendChild(tdButtons);
+        }
+      });
+    </script>
     <script src="../js/index.js"></script>
   </body>
 </html>

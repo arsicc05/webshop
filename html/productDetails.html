@@ -3,15 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Petshop</title>
+    <title>Product Details</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
@@ -42,67 +35,9 @@
         </div>
       </nav>
     </header>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
-
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
-
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
-    </div>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
-
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
-
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
-    </div>
-
     <section class="product" id="proizvod">
-      <div class="product__left-side">
-        <img src="../assets/hranaPsi.jpg" alt="petshop" />
-      </div>
-      <div class="product__right-side">
-        <h1>Pedigre - Hrana za pse</h1>
-        <p class="cena">RSD 500</p>
-        <p class="opis-proizvoda">
-          Pedigre je potpuna hrana za ishranu odraslih pasa svih rasa umerenog
-          nivoa fizičke aktivnosti. Hrana je napravljena od pažljivo biranih
-          sastojaka vrhunskog kvaliteta. Sadrži sve vitamine i minerale
-          neophodne za pravilnu i uravnoteženu ishranu pasa. Sadrži visok
-          procenat proteina životinjskog porekla – najmanje 65%. Obezbeđuje
-          vašim ljubimcima dobro zdravlje, jake kosti, zdrave zube, lepu i
-          sjajnu dlaku. Dostupno u pakovanjima: 20kg
-        </p>
-        <button>Dodaj u korpu</button>
-      </div>
+      <div class="product__left-side" id="leftSide"></div>
+      <div class="product__right-side" id="rightSide"></div>
     </section>
     <footer class="footer">
       <div>
@@ -149,6 +84,70 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyDSN0vbu-NWOLwJJHpAbhanlns666rGgRk",
+        authDomain: "petshop-200ae.firebaseapp.com",
+        databaseURL: "https://petshop-200ae-default-rtdb.firebaseio.com",
+        projectId: "petshop-200ae",
+        storageBucket: "petshop-200ae.appspot.com",
+        messagingSenderId: "332500787103",
+        appId: "1:332500787103:web:4b5ba921b52d4bce9f27aa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const proizvodKey = urlParams.get("key");
+
+      const proizvodiRef = ref(
+        db,
+        "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey
+      );
+
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvod = snapshot.val();
+
+        if (proizvod) {
+          const leftSide = document.getElementById("leftSide");
+          const rightSide = document.getElementById("rightSide");
+
+          const imgTag = document.createElement("img");
+          imgTag.alt = "Slika nije dostupna";
+          imgTag.src = proizvod.slike[0];
+          leftSide.appendChild(imgTag);
+
+          const h1Tag = document.createElement("h1");
+          h1Tag.textContent = proizvod.naziv;
+          rightSide.appendChild(h1Tag);
+
+          const cenaTag = document.createElement("p");
+          cenaTag.classList.add("cena");
+          cenaTag.textContent = `RSD ${proizvod.cena}`;
+          rightSide.appendChild(cenaTag);
+
+          const opisTag = document.createElement("p");
+          opisTag.textContent = proizvod.detaljanOpis;
+          rightSide.appendChild(opisTag);
+
+          const buttonTag = document.createElement("button");
+          buttonTag.textContent = "Dodaj u korpu";
+          rightSide.appendChild(buttonTag);
+        } else {
+          console.error("Product not found");
+        }
+      });
+    </script>
     <script src="../js/index.js"></script>
   </body>
 </html>

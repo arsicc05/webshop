@@ -55,32 +55,66 @@
         <img src="../assets/bg-pets.png" alt="hero-photo" />
       </div>
     </section>
+    <div>
+      <div class="login__popup" id="popup">
+        <form action="#" class="form__container" id="prijava">
+          <h1>Prijava</h1>
 
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+          <label for="password"><b>Lozinka</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+          <div>
+            <button type="button" onclick="closeForm()" class="btn">
+              Prijavite se
+            </button>
+            <button type="button" class="btn" onclick="closeForm()">
+              Nazad
+            </button>
+          </div>
+          <p onclick="openReg()">Registrujte se</p>
+        </form>
+        <div>
+          <form id="registracija" style="display: none" class="form__container">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" required /><br />
 
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" required /><br />
 
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
+            <label for="datumRodjenja">Datum rođenja:</label>
+            <input type="date" id="datumRodjenja" required /><br />
+
+            <label for="adresa">Adresa:</label>
+            <input type="text" id="adresa" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /><br />
+
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" required /><br />
+
+            <label for="korisnickoIme">Korisničko ime:</label>
+            <input type="text" id="korisnickoIme" required /><br />
+
+            <label for="lozinka">Lozinka:</label>
+            <input type="password" id="lozinka" required /><br />
+
+            <button type="submit" class="btn" id="submit">Potvrdi</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <section class="products" id="proizvodi">
-      <div class="grid">
-        <div class="card">
+      <div class="grid" id="proizvodiContainer">
+        <!-- <div class="card">
           <a href="productDetails.html">
             <img src="../assets/hranaPsi.jpg" alt="petshop" />
             <h1>Hrana za pse</h1>
@@ -88,49 +122,7 @@
             <p>Najukusnija hrana za pse</p>
             <button>Dodaj u korpu</button>
           </a>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
-        <div class="card">
-          <img src="../assets/hranaPsi.jpg" alt="petshop" />
-          <h1>Hrana za pse</h1>
-          <p class="cena">RSD 500</p>
-          <p>Najukusnija hrana za pse</p>
-          <button>Dodaj u korpu</button>
-        </div>
+        </div> -->
       </div>
     </section>
     <footer class="footer">
@@ -178,6 +170,109 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      function openProductDetails(proizvodKey) {
+        const productDetailsUrl = `productDetails.html?key=${proizvodKey}`;
+        window.location.href = productDetailsUrl;
+      }
+      const firebaseConfig = {
+        apiKey: "AIzaSyDSN0vbu-NWOLwJJHpAbhanlns666rGgRk",
+        authDomain: "petshop-200ae.firebaseapp.com",
+        databaseURL: "https://petshop-200ae-default-rtdb.firebaseio.com",
+        projectId: "petshop-200ae",
+        storageBucket: "petshop-200ae.appspot.com",
+        messagingSenderId: "332500787103",
+        appId: "1:332500787103:web:4b5ba921b52d4bce9f27aa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const proizvodiRef = ref(db, "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60");
+
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvodi = snapshot.val();
+        console.log(proizvodi);
+      });
+      document.getElementById("submit").addEventListener("click", function (e) {
+        e.preventDefault();
+        var ime = document.getElementById("ime").value;
+        var prezime = document.getElementById("prezime").value;
+        var datumRodjenja = document.getElementById("datumRodjenja").value;
+        var adresa = document.getElementById("adresa").value;
+        var email = document.getElementById("email").value;
+        var telefon = document.getElementById("telefon").value;
+        var korisnickoIme = document.getElementById("korisnickoIme").value;
+        var lozinka = document.getElementById("lozinka").value;
+
+        var korisnik = {
+          ime: ime,
+          prezime: prezime,
+          datumRodjenja: datumRodjenja,
+          adresa: adresa,
+          email: email,
+          telefon: telefon,
+          korisnickoIme: korisnickoIme,
+          lozinka: lozinka,
+        };
+
+        set(ref(db, "korisnici/" + korisnickoIme), korisnik);
+
+        alert("Korisnik uspešno dodat u bazu!");
+      });
+
+      const proizvodiContainer = document.getElementById("proizvodiContainer");
+
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvodi = snapshot.val();
+
+        for (const proizvodKey in proizvodi) {
+          const proizvod = proizvodi[proizvodKey];
+
+          const cardDiv = document.createElement("div");
+          cardDiv.classList.add("card");
+          cardDiv.addEventListener("click", () => {
+            openProductDetails(proizvodKey);
+          });
+
+          const anchorTag = document.createElement("a");
+
+          const imgTag = document.createElement("img");
+          imgTag.alt = "Slika nije dostupna";
+          imgTag.src = proizvod.slike[0];
+
+          const h1Tag = document.createElement("h1");
+          h1Tag.textContent = proizvod.naziv;
+
+          const cenaTag = document.createElement("p");
+          cenaTag.classList.add("cena");
+          cenaTag.textContent = `RSD ${proizvod.cena}`;
+
+          const pTag = document.createElement("p");
+          pTag.textContent = proizvod.opis;
+
+          const buttonTag = document.createElement("button");
+          buttonTag.textContent = "Dodaj u korpu";
+
+          anchorTag.appendChild(imgTag);
+          anchorTag.appendChild(h1Tag);
+          anchorTag.appendChild(cenaTag);
+          anchorTag.appendChild(pTag);
+          anchorTag.appendChild(buttonTag);
+          cardDiv.appendChild(anchorTag);
+
+          proizvodiContainer.appendChild(cardDiv);
+        }
+      });
+    </script>
     <script src="../js/index.js"></script>
   </body>
 </html>

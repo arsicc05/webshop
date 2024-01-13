@@ -42,43 +42,77 @@
         </div>
       </nav>
     </header>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
+    <div>
+      <div class="login__popup" id="popup">
+        <form action="#" class="form__container" id="prijava">
+          <h1>Prijava</h1>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
 
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+          <label for="password"><b>Lozinka</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+          <div>
+            <button type="button" onclick="closeForm()" class="btn">
+              Prijavite se
+            </button>
+            <button type="button" class="btn" onclick="closeForm()">
+              Nazad
+            </button>
+          </div>
+          <p onclick="openReg()">Registrujte se</p>
+        </form>
+        <div>
+          <form id="registracija" style="display: none" class="form__container">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" required /><br />
 
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" required /><br />
+
+            <label for="datumRodjenja">Datum rođenja:</label>
+            <input type="date" id="datumRodjenja" required /><br />
+
+            <label for="adresa">Adresa:</label>
+            <input type="text" id="adresa" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /><br />
+
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" required /><br />
+
+            <label for="korisnickoIme">Korisničko ime:</label>
+            <input type="text" id="korisnickoIme" required /><br />
+
+            <label for="lozinka">Lozinka:</label>
+            <input type="password" id="lozinka" required /><br />
+
+            <button type="submit" class="btn" id="submitUser">Potvrdi</button>
+          </form>
+        </div>
+      </div>
     </div>
     <section class="products__list">
       <h1>Lista proizvoda</h1>
 
       <div class="table__container">
-        <table>
+        <table id="proizvodiTable">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Naziv</th>
               <th>Cena u RSD</th>
-              <th>Kategorija</th>
+              <th>Tip</th>
               <th>Prosecna ocena</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>Pedigre-Hrana za pse</td>
               <td>500</td>
@@ -88,52 +122,24 @@
                 <img src="../assets/edit.png" alt="" />
                 <img src="../assets/delete.png" alt="" />
               </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Pedigre-Hrana za pse</td>
-              <td>300</td>
-              <td>Hrana za pse</td>
-              <td>5.0</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Pedigre-Hrana za pse</td>
-              <td>800</td>
-              <td>Hrana za pse</td>
-              <td>5.0</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Pedigre-Hrana za pse</td>
-              <td>900</td>
-              <td>Hrana za pse</td>
-              <td>5.0</td>
-              <td class="table__buttons">
-                <img src="../assets/edit.png" alt="" />
-                <img src="../assets/delete.png" alt="" />
-              </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
       <button class="btn__add-products" onclick="openFormAddProducts()">
         Dodaj Proizvod
       </button>
+
       <div class="hidden" id="add-products">
         <div class="add__products">
           <p class="close-add-popup" onclick="closeFormAddProducts()">
             &#10006;
           </p>
-          <form action="#" method="post" enctype="multipart/form-data">
+          <form id="dodavanje-proizvoda">
+            <div>
+              <label for="proizvodID">ID:</label>
+              <input type="text" id="proizvodID" required />
+            </div>
             <div>
               <label for="productName">Naziv:</label>
               <input type="text" id="productName" name="productName" required />
@@ -193,8 +199,65 @@
               />
             </div>
 
-            <button class="btn__add-products" onclick="closeFormAddProducts()">
+            <button class="btn__add-products" id="btnDodajProizvod">
               Dodaj proizvod
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="hidden-edit" id="edit-products">
+        <div class="add__products">
+          <p class="close-add-popup" onclick="closeFormEditProducts()">
+            &#10006;
+          </p>
+          <form>
+            <div>
+              <label for="productName-edit">Naziv:</label>
+              <input
+                type="text"
+                id="productName-edit"
+                name="productName"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="price-edit">Cena:</label>
+              <input
+                type="number"
+                id="price-edit"
+                name="price"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="productType-edit">Kategorija:</label>
+              <select id="productType-edit" name="productType" required>
+                <option value="hrana za pse">Hrana za pse</option>
+                <option value="hrana za macke">Hrana za macke</option>
+                <option value="igracke">Igracke</option>
+                <option value="transporteri">Transporteri</option>
+                <option value="poslastice">Poslastice</option>
+              </select>
+            </div>
+
+            <div>
+              <!-- <label for="productImages-edit">Slika proizvoda:</label>
+              <input
+                type="file"
+                id="productImages-edit"
+                name="productImages"
+                accept="image/*"
+                required
+              /> -->
+            </div>
+
+            <button type="submit" class="btn__add-products" id="updatovanje">
+              Izmeni proizvod
             </button>
           </form>
         </div>
@@ -247,5 +310,199 @@
       <p>Made by FTN &copy;</p>
     </div>
     <script src="../js/index.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        update,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDSN0vbu-NWOLwJJHpAbhanlns666rGgRk",
+        authDomain: "petshop-200ae.firebaseapp.com",
+        databaseURL: "https://petshop-200ae-default-rtdb.firebaseio.com",
+        projectId: "petshop-200ae",
+        storageBucket: "petshop-200ae.appspot.com",
+        messagingSenderId: "332500787103",
+        appId: "1:332500787103:web:4b5ba921b52d4bce9f27aa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const proizvodiRef = ref(db, "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60");
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvodi = snapshot.val();
+        console.log(proizvodi);
+      });
+
+      document
+        .getElementById("btnDodajProizvod")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = document.getElementById("proizvodID").value;
+          var productName = document.getElementById("productName").value;
+          var shortDescription =
+            document.getElementById("shortDescription").value;
+          var detailedDescription = document.getElementById(
+            "detailedDescription"
+          ).value;
+          var price = document.getElementById("price").value;
+          var productType = document.getElementById("productType").value;
+          var productImages = document.getElementById("productImages").value;
+
+          var noviProizvod = {
+            cena: price,
+            detaljanOpis: detailedDescription,
+            kratakOpis: shortDescription,
+            naziv: productName,
+            telefon: telefon,
+            tip: productType,
+            slike: productImages,
+          };
+
+          set(ref(db, "proizvodi/-MNVEu6iMr2EFlQO6TW60/" + id), noviProizvod);
+
+          alert("Proizvod uspešno dodat u bazu!");
+        });
+
+      document
+        .getElementById("submitUser")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          var ime = document.getElementById("ime").value;
+          var prezime = document.getElementById("prezime").value;
+          var datumRodjenja = document.getElementById("datumRodjenja").value;
+          var adresa = document.getElementById("adresa").value;
+          var email = document.getElementById("email").value;
+          var telefon = document.getElementById("telefon").value;
+          var korisnickoIme = document.getElementById("korisnickoIme").value;
+          var lozinka = document.getElementById("lozinka").value;
+
+          var korisnik = {
+            ime: ime,
+            prezime: prezime,
+            datumRodjenja: datumRodjenja,
+            adresa: adresa,
+            email: email,
+            telefon: telefon,
+            korisnickoIme: korisnickoIme,
+            lozinka: lozinka,
+          };
+
+          set(ref(db, "korisnici/" + korisnickoIme), korisnik);
+
+          alert("Korisnik uspešno dodat u bazu!");
+        });
+
+      const proizvodiTable = document.getElementById("proizvodiTable");
+      const MAX_NAZIV_LENGTH = 10;
+
+      let currentProductId = null;
+
+      function editProduct(productId) {
+        document.getElementById("edit-products").style.display = "block";
+        console.log(productId);
+
+        const proizvodRef = ref(
+          db,
+          "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + productId
+        );
+        get(proizvodRef).then((snapshot) => {
+          const proizvod = snapshot.val();
+          console.log(proizvod);
+          if (proizvod) {
+            document.getElementById("productName-edit").value = proizvod.naziv;
+            document.getElementById("price-edit").value = proizvod.cena;
+            document.getElementById("productType-edit").value = proizvod.tip;
+
+            currentProductId = productId;
+          }
+        });
+      }
+
+      function updateProduct() {
+        const updatedProductName =
+          document.getElementById("productName-edit").value;
+
+        const updatedPrice = document.getElementById("price-edit").value;
+        const updatedProductType =
+          document.getElementById("productType-edit").value;
+
+        const updatedProductData = {
+          naziv: updatedProductName,
+          cena: updatedPrice,
+          tip: updatedProductType,
+        };
+
+        const proizvodRef = ref(
+          db,
+          "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + currentProductId
+        );
+        update(proizvodRef, updatedProductData);
+
+        document.getElementById("edit-products").classList.add("hidden");
+
+        currentProductId = null;
+      }
+      document
+        .getElementById("updatovanje")
+        .addEventListener("click", updateProduct);
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvodi = snapshot.val();
+
+        for (const proizvodKey in proizvodi) {
+          const proizvod = proizvodi[proizvodKey];
+
+          const trTag = document.createElement("tr");
+
+          const tdNaziv = document.createElement("td");
+
+          const nazivTekst =
+            proizvod.naziv.length > MAX_NAZIV_LENGTH
+              ? proizvod.naziv.substring(0, MAX_NAZIV_LENGTH) + "..."
+              : proizvod.naziv;
+          tdNaziv.textContent = nazivTekst;
+          trTag.appendChild(tdNaziv);
+          proizvodiTable.appendChild(trTag);
+
+          const tdCena = document.createElement("td");
+          tdCena.textContent = `RSD ${proizvod.cena}`;
+          trTag.appendChild(tdCena);
+
+          const tdTip = document.createElement("td");
+          tdTip.textContent = proizvod.tip;
+          trTag.appendChild(tdTip);
+
+          const tdProsek = document.createElement("td");
+          tdProsek.textContent = proizvod.prosecnaOcena;
+          trTag.appendChild(tdProsek);
+
+          proizvodiTable.appendChild(trTag);
+
+          const tdButtons = document.createElement("td");
+          tdButtons.classList.add("table__buttons");
+
+          const editImg = document.createElement("img");
+          editImg.src = "../assets/edit.png";
+          editImg.alt = "Edit";
+          editImg.addEventListener("click", function () {
+            editProduct(proizvodKey);
+          });
+          tdButtons.appendChild(editImg);
+
+          const deleteImg = document.createElement("img");
+          deleteImg.src = "../assets/delete.png";
+          deleteImg.alt = "Delete";
+          tdButtons.appendChild(deleteImg);
+
+          trTag.appendChild(tdButtons);
+        }
+      });
+    </script>
   </body>
 </html>
