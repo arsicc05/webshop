@@ -114,12 +114,88 @@ body {
   background-color: antiquewhite;
   min-height: calc(100vh - 130px);
 }
+.admin {
+  display: flex;
+  max-width: 1280px;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  background-color: antiquewhite;
+  min-height: calc(100vh - 130px);
+}
+
+.admin__deo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#petShopForm {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid #656262;
+  z-index: 9;
+  width: 400px;
+  border-radius: 25px;
+  background-color: white;
+}
+#petShopForm form {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+}
+#petShopForm input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+}
+#petShopFormr input[type="text"]:focus,
+#petShopForm input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#petShopForm .btn {
+  padding: 15px;
+  border-radius: 36px;
+  outline: none;
+  border: none;
+  background: #862b2b;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  width: 150px;
+  margin-top: 15px;
+}
+
+#petShopForm .btn:hover {
+  opacity: 1;
+}
 .hero__left {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
 }
-.hero__left h2 {
+.admin__deo h2 {
+  text-align: center;
+}
+.hero__left h2,
+.admin__deo h2 {
   font-weight: 800;
   font-size: 64px;
   text-transform: uppercase;
@@ -129,7 +205,8 @@ body {
   margin-bottom: 10px;
   margin-top: 30px;
 }
-.hero__left h4 {
+.hero__left h4,
+.admin__deo h4 {
   font-weight: 700;
   font-size: 39px;
   text-transform: uppercase;
@@ -137,7 +214,15 @@ body {
   opacity: 0.8;
   margin: 0px;
 }
-.hero__left button {
+.admin__deo button {
+  min-width: 200px;
+}
+.admin__deo button a {
+  text-decoration: none;
+  color: #fff;
+}
+.hero__left button,
+.admin__deo button {
   padding: 20px;
   border-radius: 36px;
   outline: none;

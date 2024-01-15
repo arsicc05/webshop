@@ -93,12 +93,43 @@
             <label for="lozinka">Lozinka:</label>
             <input type="password" id="lozinka" required /><br />
 
-            <button type="submit" class="btn" id="submit">Potvrdi</button>
+            <button type="button" class="btn" id="submit">Potvrdi</button>
+            <button class="btn" onclick="closeForm()">Nazad</button>
           </form>
         </div>
       </div>
     </div>
 
+    <div class="edit-users__form">
+      <form id="edit-users" style="display: none" class="form__container">
+        <label for="edit-ime">Ime:</label>
+        <input type="text" id="edit-ime" required /><br />
+
+        <label for="edit-prezime">Prezime:</label>
+        <input type="text" id="edit-prezime" required /><br />
+
+        <label for="edit-datumRodjenja">Datum rođenja:</label>
+        <input type="date" id="edit-datumRodjenja" required /><br />
+
+        <label for="edit-adresa">Adresa:</label>
+        <input type="text" id="edit-adresa" required /><br />
+
+        <label for="edit-email">Email:</label>
+        <input type="email" id="edit-email" required /><br />
+
+        <label for="edit-telefon">Telefon:</label>
+        <input type="tel" id="edit-telefon" required /><br />
+
+        <label for="edit-korisnickoIme">Korisničko ime:</label>
+        <input type="text" id="edit-korisnickoIme" required /><br />
+
+        <label for="edit-lozinka">Lozinka:</label>
+        <input type="password" id="edit-lozinka" required /><br />
+
+        <button type="button" class="btn" id="edit-submit">Potvrdi</button>
+        <button class="btn" onclick="closeForm2()">Nazad</button>
+      </form>
+    </div>
     <section class="products__list">
       <h1>Lista korisnika</h1>
 
@@ -128,10 +159,10 @@
           </tbody>
         </table>
       </div>
-      <button class="btn__add-products" onclick="openFormAddProducts()">
+      <button class="btn__add-products" onclick="openReg2()">
         Dodaj Korisnika
       </button>
-      <div class="hidden" id="add-products">
+      <!-- <div class="hidden" id="add-products">
         <div class="add__products">
           <p class="close-add-popup" onclick="closeFormAddProducts()">
             &#10006;
@@ -166,8 +197,8 @@
               Dodaj korisnika
             </button>
           </form>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </section>
     <div id="overlay"></div>
     <footer class="footer">
@@ -221,6 +252,7 @@
         getDatabase,
         ref,
         onValue,
+        update,
         set,
         get,
         child,
@@ -238,6 +270,10 @@
 
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
+      function openUserDetails(userID) {
+        const userDetailsUrl = `user.html?key=${userID}`;
+        window.location.href = userDetailsUrl;
+      }
       const korisniciRef = ref(db, "korisnici");
       onValue(korisniciRef, (snapshot) => {
         const korisnici = snapshot.val();
@@ -269,7 +305,70 @@
 
         alert("Korisnik uspešno dodat u bazu!");
       });
+      let currentUserId = null;
 
+      function editUser(userId) {
+        document.getElementById("edit-users").style.display = "block";
+        document.querySelector(".edit-users__form").style.display = "block";
+        console.log(userId);
+
+        const korisnikRef = ref(db, "korisnici/" + userId);
+        get(korisnikRef).then((snapshot) => {
+          const korisnik = snapshot.val();
+          console.log(korisnik);
+          if (korisnik) {
+            document.getElementById("edit-ime").value = korisnik.ime;
+            document.getElementById("edit-prezime").value = korisnik.prezime;
+            document.getElementById("edit-datumRodjenja").value =
+              korisnik.datumRodjenja;
+            document.getElementById("edit-adresa").value = korisnik.adresa;
+            document.getElementById("edit-email").value = korisnik.email;
+            document.getElementById("edit-telefon").value = korisnik.telefon;
+            document.getElementById("edit-korisnickoIme").value =
+              korisnik.korisnickoIme;
+            document.getElementById("edit-lozinka").value = korisnik.lozinka;
+
+            currentUserId = userId;
+          }
+        });
+      }
+
+      function updateUser() {
+        var updateIme = document.getElementById("edit-ime").value;
+        var updatePrezime = document.getElementById("edit-prezime").value;
+        var updateDatumRodjenja =
+          document.getElementById("edit-datumRodjenja").value;
+        var updateAdresa = document.getElementById("edit-adresa").value;
+        var updateEmail = document.getElementById("edit-email").value;
+        var updateTelefon = document.getElementById("edit-telefon").value;
+        var updateKorisnickoIme =
+          document.getElementById("edit-korisnickoIme").value;
+        var updateLozinka = document.getElementById("edit-lozinka").value;
+
+        var updatedUser = {
+          ime: updateIme,
+          prezime: updatePrezime,
+          datumRodjenja: updateDatumRodjenja,
+          adresa: updateAdresa,
+          email: updateEmail,
+          telefon: updateTelefon,
+          korisnickoIme: updateKorisnickoIme,
+          lozinka: updateLozinka,
+        };
+
+        const korisnikRef = ref(db, "korisnici/" + currentUserId);
+        update(korisnikRef, updatedUser);
+
+        document.getElementById("edit-users").classList.add("hidden");
+        document.querySelector(".edit-users__form").style.display = "none";
+
+        currentUserId = null;
+      }
+      document
+        .getElementById("edit-submit")
+        .addEventListener("click", function () {
+          updateUser();
+        });
       const korisniciTable = document.getElementById("korisniciTable");
       const MAX_NAZIV_LENGTH = 10;
       onValue(korisniciRef, (snapshot) => {
@@ -307,12 +406,23 @@
           const editImg = document.createElement("img");
           editImg.src = "../assets/edit.png";
           editImg.alt = "Edit";
+          editImg.addEventListener("click", function (e) {
+            e.preventDefault();
+            editUser(korisnikKey);
+          });
           tdButtons.appendChild(editImg);
 
           const deleteImg = document.createElement("img");
           deleteImg.src = "../assets/delete.png";
           deleteImg.alt = "Delete";
           tdButtons.appendChild(deleteImg);
+          const eyeImg = document.createElement("img");
+          eyeImg.src = "../assets/eye.png";
+          eyeImg.alt = "Preview";
+          eyeImg.addEventListener("click", function () {
+            openUserDetails(korisnikKey);
+          });
+          tdButtons.appendChild(eyeImg);
 
           trTag.appendChild(tdButtons);
         }

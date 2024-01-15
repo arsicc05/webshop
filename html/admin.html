@@ -42,28 +42,60 @@
         </div>
       </nav>
     </header>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
-
-        <label for="password"><b>Lozinka</b></label>
+    <section class="admin">
+      <div class="admin__deo">
+        <h2>Dobrodosao nazad admine</h2>
+        <h4>Izaberite sta zelite da menjate</h4>
+        <button><a href="listOfUsers.html">Korisnici</a></button>
+        <button><a href="ListOfProducts.html">Proizvodi</a></button>
+        <button onclick="openPetshopForm()"><a>Detalji prodavnice</a></button>
+      </div>
+    </section>
+    <div id="petShopForm">
+      <form>
+        <label for="adresa">Adresa:</label>
         <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
+          type="text"
+          id="adresa"
+          name="adresa"
+          value="Trg Pavla Stojkovića 12, Nis, 18000"
         />
 
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
+        <label for="godinaOtvaranja">Godina Otvaranja:</label>
+        <input
+          type="text"
+          id="godinaOtvaranja"
+          name="godinaOtvaranja"
+          value="2001"
+        />
+
+        <label for="logo">URL Logo:</label>
+        <input
+          type="text"
+          id="logo"
+          name="logo"
+          value="https://i.imgur.com/zUrrGam.jpeg"
+        />
+
+        <label for="naziv">Naziv:</label>
+        <input type="text" id="naziv" name="naziv" value="Code PetShop" />
+
+        <label for="proizvodi">Proizvodi:</label>
+        <input
+          type="text"
+          id="proizvodi"
+          name="proizvodi"
+          value="-MNVEu6iMr2EFlQO6TW60"
+        />
+
+        <label for="telefon">Telefon:</label>
+        <input type="text" id="telefon" name="telefon" value="067-5555-555" />
+
+        <button class="btn" id="petshopPotvrda">Potvrdi</button>
+        <button class="btn" onclick="closePetshopForm()">Nazad</button>
       </form>
     </div>
-    <section class="user__details" id="sekcija"></section>
+
     <footer class="footer">
       <div>
         <img src="../assets/title.svg" alt="" class="footer__img" />
@@ -106,9 +138,6 @@
         </ul>
       </div>
     </footer>
-    <div class="after__footer">
-      <p>Made by FTN &copy;</p>
-    </div>
     <script src="../js/index.js"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -116,6 +145,7 @@
         getDatabase,
         ref,
         onValue,
+        update,
         set,
         get,
         child,
@@ -133,49 +163,42 @@
 
       const app = initializeApp(firebaseConfig);
       const db = getDatabase(app);
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const korisnikKey = urlParams.get("key");
-      const korisnikRef = ref(db, "korisnici/" + korisnikKey);
-      onValue(korisnikRef, (snapshot) => {
-        const korisnik = snapshot.val();
-        if (korisnik) {
-          var sekcija = document.getElementById("sekcija");
-          var h2 = document.createElement("h2");
-          h2.innerText = "Licni Podaci";
-
-          var korisnickoIme = document.createElement("p");
-          korisnickoIme.innerHTML = `<strong>Korisnicko Ime:</strong> ${korisnik.korisnickoIme}`;
-
-          var ime = document.createElement("p");
-          ime.innerHTML = `<strong>Ime:</strong> ${korisnik.ime}`;
-
-          var prezime = document.createElement("p");
-          prezime.innerHTML = `<strong>Prezime:</strong> ${korisnik.prezime}`;
-
-          var email = document.createElement("p");
-          email.innerHTML = `<strong>Email:</strong> ${korisnik.email}`;
-
-          var datumRodjenja = document.createElement("p");
-          datumRodjenja.innerHTML = `<strong>Datum Rodjenja:</strong> ${korisnik.datumRodjenja}`;
-
-          var adresa = document.createElement("p");
-          adresa.innerHTML = `<strong>Adresa:</strong> ${korisnik.adresa}`;
-
-          var telefon = document.createElement("p");
-          telefon.innerHTML = `<strong>Telefon:</strong> ${korisnik.telefon}`;
-
-          // Dodavanje elemenata u body
-          sekcija.appendChild(h2);
-          sekcija.appendChild(korisnickoIme);
-          sekcija.appendChild(ime);
-          sekcija.appendChild(prezime);
-          sekcija.appendChild(email);
-          sekcija.appendChild(datumRodjenja);
-          sekcija.appendChild(adresa);
-          sekcija.appendChild(telefon);
+      const storeRef = ref(db, "petShop");
+      get(storeRef).then((snapshot) => {
+        const store = snapshot.val();
+        console.log(store);
+        if (store) {
+          document.getElementById("adresa").value = store.adresa;
+          document.getElementById("godinaOtvaranja").value =
+            store.godinaOtvaranja;
+          document.getElementById("logo").value = store.logo;
+          document.getElementById("naziv").value = store.naziv;
+          document.getElementById("proizvodi").value = store.proizvodi;
+          document.getElementById("telefon").value = store.telefon;
         }
       });
+      document
+        .getElementById("petshopPotvrda")
+        .addEventListener("click", function () {
+          const updatedAdresa = document.getElementById("adresa").value;
+          const updatedGodina =
+            document.getElementById("godinaOtvaranja").value;
+          const updatedLogo = document.getElementById("logo").value;
+          const updatedNaziv = document.getElementById("naziv").value;
+          const updatedProizvodi = document.getElementById("proizvodi").value;
+          const updatedTelefon = document.getElementById("telefon").value;
+
+          const updatedStoreData = {
+            adresa: updatedAdresa,
+            godinaOtvaranja: updatedGodina,
+            logo: updatedLogo,
+            naziv: updatedNaziv,
+            proizvodi: updatedProizvodi,
+            telefon: updatedTelefon,
+          };
+          const storeRef = ref(db, "petShop");
+          update(storeRef, updatedStoreData);
+        });
     </script>
   </body>
 </html>
