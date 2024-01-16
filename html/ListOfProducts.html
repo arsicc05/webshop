@@ -334,6 +334,7 @@
         ref,
         onValue,
         update,
+        remove,
         set,
         get,
         child,
@@ -476,9 +477,10 @@
       document
         .getElementById("updatovanje")
         .addEventListener("click", updateProduct);
+
       onValue(proizvodiRef, (snapshot) => {
         const proizvodi = snapshot.val();
-
+        proizvodiTable.innerHTML = "";
         for (const proizvodKey in proizvodi) {
           const proizvod = proizvodi[proizvodKey];
 
@@ -522,6 +524,9 @@
           const deleteImg = document.createElement("img");
           deleteImg.src = "../assets/delete.png";
           deleteImg.alt = "Delete";
+          deleteImg.addEventListener("click", function () {
+            remove(ref(db, "proizvodi/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey));
+          });
           tdButtons.appendChild(deleteImg);
 
           trTag.appendChild(tdButtons);

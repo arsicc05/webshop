@@ -253,6 +253,7 @@
         getDatabase,
         ref,
         onValue,
+        remove,
         update,
         set,
         get,
@@ -381,7 +382,7 @@
       const MAX_NAZIV_LENGTH = 10;
       onValue(korisniciRef, (snapshot) => {
         const korisnici = snapshot.val();
-
+        korisniciTable.innerHTML = "";
         for (const korisnikKey in korisnici) {
           const korisnik = korisnici[korisnikKey];
 
@@ -423,6 +424,9 @@
           const deleteImg = document.createElement("img");
           deleteImg.src = "../assets/delete.png";
           deleteImg.alt = "Delete";
+          deleteImg.addEventListener("click", function () {
+            remove(ref(db, "korisnici/" + korisnikKey));
+          });
           tdButtons.appendChild(deleteImg);
           const eyeImg = document.createElement("img");
           eyeImg.src = "../assets/eye.png";
