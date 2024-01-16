@@ -24,24 +24,40 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="admin.html">Admin</a></li>
           <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
         <div class="menu-cart">
           <ul class="header__menu-mobile">
             <li>
-              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+              <img
+                src="../assets/menu.svg"
+                alt="menu"
+                class="hamburger"
+                id="mobileMenuBtn"
+              />
             </li>
           </ul>
           <div class="cart">
-            <a href="cart.html"
-              ><img src="../assets/shopping-cart-icon.png" alt="cart"
-            /></a>
+            <a href="cart.html">
+              <img src="../assets/shopping-cart-icon.png" alt="cart" />
+            </a>
           </div>
         </div>
       </nav>
+
+      <div class="mobile-menu-container" id="mobileMenu">
+        <span class="close-btn" onclick="closeMobileMenu()">&times;</span>
+        <ul class="mobile-menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
     </header>
+
     <div>
       <div class="login__popup" id="popup">
         <form action="#" class="form__container" id="prijava">
@@ -309,6 +325,7 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+
     <script src="../js/index.js"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -382,7 +399,14 @@
           var telefon = document.getElementById("telefon").value;
           var korisnickoIme = document.getElementById("korisnickoIme").value;
           var lozinka = document.getElementById("lozinka").value;
-
+          if (korisnickoIme.length < 5) {
+            alert("Korisničko ime mora imati barem 5 karaktera.");
+            return;
+          }
+          if (lozinka.length < 8) {
+            alert("Lozinka mora imati barem 8 karaktera.");
+            return;
+          }
           var korisnik = {
             ime: ime,
             prezime: prezime,

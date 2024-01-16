@@ -24,44 +24,95 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="admin.html">Admin</a></li>
           <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
         <div class="menu-cart">
           <ul class="header__menu-mobile">
             <li>
-              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+              <img
+                src="../assets/menu.svg"
+                alt="menu"
+                class="hamburger"
+                id="mobileMenuBtn"
+              />
             </li>
           </ul>
           <div class="cart">
-            <a href="cart.html"
-              ><img src="../assets/shopping-cart-icon.png" alt="cart"
-            /></a>
+            <a href="cart.html">
+              <img src="../assets/shopping-cart-icon.png" alt="cart" />
+            </a>
           </div>
         </div>
       </nav>
+
+      <div class="mobile-menu-container" id="mobileMenu">
+        <span class="close-btn" onclick="closeMobileMenu()">&times;</span>
+        <ul class="mobile-menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
     </header>
-    <div class="login__popup" id="popup">
-      <form action="#" class="form__container">
-        <h1>Prijava</h1>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+    <div>
+      <div class="login__popup" id="popup">
+        <form action="#" class="form__container" id="prijava">
+          <h1>Prijava</h1>
 
-        <label for="password"><b>Lozinka</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="password"
-          required
-        />
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
 
-        <button type="button" onclick="closeForm()" class="btn">
-          Prijavite se
-        </button>
-        <button type="button" class="btn" onclick="closeForm()">Nazad</button>
-      </form>
+          <label for="password"><b>Lozinka</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+          <div>
+            <button type="button" onclick="closeForm()" class="btn">
+              Prijavite se
+            </button>
+            <button type="button" class="btn" onclick="closeForm()">
+              Nazad
+            </button>
+          </div>
+          <p onclick="openReg()">Registrujte se</p>
+        </form>
+        <div>
+          <form id="registracija" style="display: none" class="form__container">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" required /><br />
+
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" required /><br />
+
+            <label for="datumRodjenja">Datum rođenja:</label>
+            <input type="date" id="datumRodjenja" required /><br />
+
+            <label for="adresa">Adresa:</label>
+            <input type="text" id="adresa" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /><br />
+
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" required /><br />
+
+            <label for="korisnickoIme">Korisničko ime:</label>
+            <input type="text" id="korisnickoIme" required /><br />
+
+            <label for="lozinka">Lozinka:</label>
+            <input type="password" id="lozinka" required /><br />
+
+            <button type="submit" class="btn" id="submit">Potvrdi</button>
+          </form>
+        </div>
+      </div>
     </div>
     <section class="cart__main">
       <div class="cart__header">
@@ -69,27 +120,8 @@
         <h5>Uklonite sve</h5>
       </div>
 
-      <div class="cart__items">
-        <div class="cart__item">
-          <div class="slika__proizvoda">
-            <img src="../assets/hranaPsi.jpg" />
-          </div>
-
-          <div class="opis">
-            <h1>Pedigre hrana za pse</h1>
-          </div>
-
-          <div class="brojac">
-            <div class="btn">+</div>
-            <div class="broj">1</div>
-            <div class="btn">-</div>
-          </div>
-
-          <div class="cena">RSD 500</div>
-          <img class="remove__item" src="../assets/delete.png" alt="delete" />
-        </div>
-
-        <div class="cart__item">
+      <div class="cart__items" id="cart-items">
+        <!-- <div class="cart__item">
           <div class="slika__proizvoda">
             <img src="../assets/hranaPsi.jpg" />
           </div>
@@ -106,17 +138,17 @@
 
           <div class="cena">RSD 500</div>
           <img class="remove__item" src="../assets/delete.png" alt="delete" />
-        </div>
+        </div> -->
       </div>
 
       <div class="ukupna__cena">
         <div class="cena__head">
           <div>
             <div class="ukupno">Ukupno</div>
-            <div class="broj__proizvoda">2 proizvoda</div>
+            <div class="broj__proizvoda" id="brojProizvoda"></div>
           </div>
 
-          <div class="ukupna__cena__proizvoda">RSD 1500</div>
+          <div class="ukupna__cena__proizvoda" id="price"></div>
         </div>
 
         <button>Zavrsi kupovinu</button>
@@ -167,6 +199,118 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+
     <script src="../js/index.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        set,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDSN0vbu-NWOLwJJHpAbhanlns666rGgRk",
+        authDomain: "petshop-200ae.firebaseapp.com",
+        databaseURL: "https://petshop-200ae-default-rtdb.firebaseio.com",
+        projectId: "petshop-200ae",
+        storageBucket: "petshop-200ae.appspot.com",
+        messagingSenderId: "332500787103",
+        appId: "1:332500787103:web:4b5ba921b52d4bce9f27aa",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const proizvodiRef = ref(db, "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60");
+      let ukupnaCena = 0;
+      let brojProizvoda = 0;
+      onValue(proizvodiRef, (snapshot) => {
+        const proizvodi = snapshot.val();
+        document.getElementById("cart-items").innerHTML = "";
+        for (const proizvodKey in proizvodi) {
+          const proizvod = proizvodi[proizvodKey];
+          if (proizvod.uKorpi) {
+            brojProizvoda++;
+            let brojac = 1;
+
+            var divElement = document.createElement("div");
+            divElement.classList.add("cart__item");
+
+            var slikaProizvodaDiv = document.createElement("div");
+            slikaProizvodaDiv.classList.add("slika__proizvoda");
+            var imgElement = document.createElement("img");
+            imgElement.src = proizvod.slike[0];
+            slikaProizvodaDiv.appendChild(imgElement);
+            divElement.appendChild(slikaProizvodaDiv);
+
+            var opisDiv = document.createElement("div");
+            opisDiv.classList.add("opis");
+            var h1Element = document.createElement("h1");
+            h1Element.textContent = proizvod.naziv;
+            opisDiv.appendChild(h1Element);
+            divElement.appendChild(opisDiv);
+
+            var brojacDiv = document.createElement("div");
+            brojacDiv.classList.add("brojac");
+
+            var plusBtn = document.createElement("div");
+            plusBtn.classList.add("btn");
+            plusBtn.textContent = "+";
+            plusBtn.addEventListener("click", function () {
+              brojac++;
+              document.querySelector('[data-id="brojacID"]').innerHTML = brojac;
+            });
+            brojacDiv.appendChild(plusBtn);
+
+            var brojDiv = document.createElement("div");
+            brojDiv.classList.add("broj");
+            brojDiv.innerHTML = brojac;
+            brojDiv.dataset.id = "brojacID";
+            brojacDiv.appendChild(brojDiv);
+
+            var minusBtn = document.createElement("div");
+            minusBtn.classList.add("btn");
+            minusBtn.textContent = "-";
+            minusBtn.addEventListener("click", function () {
+              brojac > 1 ? brojac-- : 1;
+              document.querySelector('[data-id="brojacID"]').innerHTML = brojac;
+            });
+            brojacDiv.appendChild(minusBtn);
+
+            divElement.appendChild(brojacDiv);
+
+            var cenaDiv = document.createElement("div");
+            cenaDiv.classList.add("cena");
+            cenaDiv.textContent = proizvod.cena;
+            divElement.appendChild(cenaDiv);
+
+            var removeItemImg = document.createElement("img");
+            removeItemImg.classList.add("remove__item");
+            removeItemImg.src = "../assets/delete.png";
+            removeItemImg.alt = "delete";
+            removeItemImg.addEventListener("click", function (e) {
+              e.preventDefault();
+              let noviProizvod = { ...proizvod, uKorpi: false };
+              console.log(noviProizvod);
+              set(
+                ref(db, "proizvodi/" + "-MNVEu6iMr2EFlQO6TW60/" + proizvodKey),
+                noviProizvod
+              );
+            });
+            divElement.appendChild(removeItemImg);
+            document.getElementById("cart-items").appendChild(divElement);
+            ukupnaCena += brojac * Number(proizvod.cena);
+          }
+
+          document.getElementById("price").innerHTML = `RSD ${ukupnaCena}`;
+          document.getElementById(
+            "brojProizvoda"
+          ).innerHTML = `${brojProizvoda} proizvoda`;
+        }
+      });
+    </script>
   </body>
 </html>

@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details</title>
+    <title>Petshop</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../assets/title.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -17,28 +24,71 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="admin.html">Admin</a></li>
           <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
         <div class="menu-cart">
           <ul class="header__menu-mobile">
             <li>
-              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+              <img
+                src="../assets/menu.svg"
+                alt="menu"
+                class="hamburger"
+                id="mobileMenuBtn"
+              />
             </li>
           </ul>
           <div class="cart">
-            <a href="cart.html"
-              ><img src="../assets/shopping-cart-icon.png" alt="cart"
-            /></a>
+            <a href="cart.html">
+              <img src="../assets/shopping-cart-icon.png" alt="cart" />
+            </a>
           </div>
         </div>
       </nav>
+
+      <div class="mobile-menu-container" id="mobileMenu">
+        <span class="close-btn" onclick="closeMobileMenu()">&times;</span>
+        <ul class="mobile-menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
     </header>
     <section class="product" id="proizvod">
       <div class="product__left-side" id="leftSide"></div>
       <div class="product__right-side" id="rightSide"></div>
     </section>
+    <section class="ocenjivanje">
+      <div class="star-rating" id="starRating">
+        <span data-rating="1">★</span>
+        <span data-rating="2">★</span>
+        <span data-rating="3">★</span>
+        <span data-rating="4">★</span>
+        <span data-rating="5">★</span>
+        <span data-rating="6">★</span>
+        <span data-rating="7">★</span>
+        <span data-rating="8">★</span>
+        <span data-rating="9">★</span>
+        <span data-rating="10">★</span>
+      </div>
+
+      <ul class="brojOcena">
+        <li>10 zvezdica <span id="brojac10"></span></li>
+        <li>9 zvezdica <span id="brojac9"></span></li>
+        <li>8 zvezdica <span id="brojac8"></span></li>
+        <li>7 zvezdica <span id="brojac7"></span></li>
+        <li>6 zvezdica <span id="brojac6"></span></li>
+        <li>5 zvezdica <span id="brojac5"></span></li>
+        <li>4 zvezdice <span id="brojac4"></span></li>
+        <li>3 zvezdice <span id="brojac3"></span></li>
+        <li>2 zvezdice <span id="brojac2"></span></li>
+        <li>1 zvezdica <span id="brojac1"></span></li>
+      </ul>
+    </section>
+
     <footer class="footer">
       <div>
         <img src="../assets/title.svg" alt="" class="footer__img" />
@@ -84,12 +134,15 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import {
         getDatabase,
         ref,
         onValue,
+        update,
+        push,
         set,
         get,
         child,
@@ -114,14 +167,97 @@
         db,
         "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey
       );
+      const oceneRef = ref(
+        db,
+        "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey + "/ocene"
+      );
 
+      let br1 = 0;
+      let br2 = 0;
+      let br3 = 0;
+      let br4 = 0;
+      let br5 = 0;
+      let br6 = 0;
+      let br7 = 0;
+      let br8 = 0;
+      let br9 = 0;
+      let br10 = 0;
+
+      onValue(oceneRef, (snapshot) => {
+        const ocene = snapshot.val();
+        br1 = 0;
+        br2 = 0;
+        br3 = 0;
+        br4 = 0;
+        br5 = 0;
+        br6 = 0;
+        br7 = 0;
+        br8 = 0;
+        br9 = 0;
+        br10 = 0;
+        if (ocene && typeof ocene === "object") {
+          for (const key in ocene) {
+            const ocena = ocene[key];
+
+            switch (ocena) {
+              case 1:
+                br1++;
+                break;
+              case 2:
+                br2++;
+                break;
+              case 3:
+                br3++;
+                break;
+              case 4:
+                br4++;
+                break;
+              case 5:
+                br5++;
+                break;
+              case 6:
+                br6++;
+                break;
+              case 7:
+                br7++;
+                break;
+              case 8:
+                br8++;
+                break;
+              case 9:
+                br9++;
+                break;
+              case 10:
+                br10++;
+                break;
+
+              default:
+                break;
+            }
+          }
+          document.getElementById("brojac10").innerHTML = `(${br10})`;
+          document.getElementById("brojac9").innerHTML = `(${br9})`;
+          document.getElementById("brojac8").innerHTML = `(${br8})`;
+          document.getElementById("brojac7").innerHTML = `(${br7})`;
+          document.getElementById("brojac6").innerHTML = `(${br6})`;
+          document.getElementById("brojac5").innerHTML = `(${br5})`;
+          document.getElementById("brojac4").innerHTML = `(${br4})`;
+          document.getElementById("brojac3").innerHTML = `(${br3})`;
+          document.getElementById("brojac2").innerHTML = `(${br2})`;
+          document.getElementById("brojac1").innerHTML = `(${br1})`;
+        } else {
+          console.error("Data is not an object:", ocene);
+        }
+      });
+
+      let leftSide = document.getElementById("leftSide");
+      let rightSide = document.getElementById("rightSide");
+      let selectedRating = 0;
       onValue(proizvodiRef, (snapshot) => {
         const proizvod = snapshot.val();
-
+        leftSide.innerHTML = "";
+        rightSide.innerHTML = "";
         if (proizvod) {
-          const leftSide = document.getElementById("leftSide");
-          const rightSide = document.getElementById("rightSide");
-
           const imgTag = document.createElement("img");
           imgTag.alt = "Slika nije dostupna";
           imgTag.src = proizvod.slike[0];
@@ -142,10 +278,60 @@
 
           const buttonTag = document.createElement("button");
           buttonTag.textContent = "Dodaj u korpu";
+          buttonTag.addEventListener("click", function (e) {
+            e.preventDefault();
+            let noviProizvod = { ...proizvod, uKorpi: true };
+            console.log(noviProizvod);
+            update(
+              ref(db, "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey),
+              noviProizvod
+            );
+          });
+
           rightSide.appendChild(buttonTag);
+          selectedRating = Math.floor(proizvod.prosecnaOcena);
         } else {
           console.error("Product not found");
         }
+      });
+
+      function initializeStarRating() {
+        const starRatingContainer = document.getElementById("starRating");
+        setActiveStars(selectedRating);
+        starRatingContainer.addEventListener("click", function (e) {
+          const clickedRating = e.target.getAttribute("data-rating");
+          if (clickedRating) {
+            selectedRating = parseInt(clickedRating);
+            setActiveStars(selectedRating);
+            push(
+              ref(
+                db,
+                "proizvodi" + "/-MNVEu6iMr2EFlQO6TW60/" + proizvodKey + "/ocene"
+              ),
+              selectedRating
+            );
+          }
+        });
+
+        starRatingContainer.addEventListener("mouseleave", function () {
+          setActiveStars(selectedRating);
+        });
+
+        function setActiveStars(rating) {
+          const stars = starRatingContainer.querySelectorAll("span");
+          stars.forEach((star, index) => {
+            if (index < rating) {
+              star.classList.add("active");
+            } else {
+              star.classList.remove("active");
+            }
+          });
+        }
+      }
+
+      // Pozovite funkciju za inicijalizaciju ocenjivanja kada se stranica učita
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeStarRating();
       });
     </script>
     <script src="../js/index.js"></script>

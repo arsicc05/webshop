@@ -31,17 +31,33 @@
         <div class="menu-cart">
           <ul class="header__menu-mobile">
             <li>
-              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+              <img
+                src="../assets/menu.svg"
+                alt="menu"
+                class="hamburger"
+                id="mobileMenuBtn"
+              />
             </li>
           </ul>
           <div class="cart">
-            <a href="cart.html"
-              ><img src="../assets/shopping-cart-icon.png" alt="cart"
-            /></a>
+            <a href="cart.html">
+              <img src="../assets/shopping-cart-icon.png" alt="cart" />
+            </a>
           </div>
         </div>
       </nav>
+
+      <div class="mobile-menu-container" id="mobileMenu">
+        <span class="close-btn" onclick="closeMobileMenu()">&times;</span>
+        <ul class="mobile-menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
     </header>
+
     <section class="hero">
       <div class="hero__left">
         <h4>Najbolji proizvodi za vase ljubimce</h4>
@@ -170,12 +186,14 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import {
         getDatabase,
         ref,
         onValue,
+        update,
         set,
         get,
         child,
@@ -212,7 +230,14 @@
         var telefon = document.getElementById("telefon").value;
         var korisnickoIme = document.getElementById("korisnickoIme").value;
         var lozinka = document.getElementById("lozinka").value;
-
+        if (korisnickoIme.length < 5) {
+          alert("Korisničko ime mora imati barem 5 karaktera.");
+          return;
+        }
+        if (lozinka.length < 8) {
+          alert("Lozinka mora imati barem 8 karaktera.");
+          return;
+        }
         var korisnik = {
           ime: ime,
           prezime: prezime,
@@ -233,22 +258,21 @@
 
       onValue(proizvodiRef, (snapshot) => {
         const proizvodi = snapshot.val();
-
+        proizvodiContainer.innerHTML = "";
         for (const proizvodKey in proizvodi) {
           const proizvod = proizvodi[proizvodKey];
 
           const cardDiv = document.createElement("div");
           cardDiv.classList.add("card");
-          cardDiv.addEventListener("click", () => {
-            openProductDetails(proizvodKey);
-          });
 
           const anchorTag = document.createElement("a");
 
           const imgTag = document.createElement("img");
           imgTag.alt = "Slika nije dostupna";
           imgTag.src = proizvod.slike[0];
-
+          imgTag.addEventListener("click", () => {
+            openProductDetails(proizvodKey);
+          });
           const h1Tag = document.createElement("h1");
           h1Tag.textContent = proizvod.naziv;
 
@@ -261,6 +285,16 @@
 
           const buttonTag = document.createElement("button");
           buttonTag.textContent = "Dodaj u korpu";
+          buttonTag.style.zIndex = "1000000";
+          buttonTag.addEventListener("click", function (e) {
+            e.preventDefault();
+            let noviProizvod = { ...proizvod, uKorpi: true };
+            console.log(noviProizvod);
+            set(
+              ref(db, "proizvodi/" + "-MNVEu6iMr2EFlQO6TW60/" + proizvodKey),
+              noviProizvod
+            );
+          });
 
           anchorTag.appendChild(imgTag);
           anchorTag.appendChild(h1Tag);

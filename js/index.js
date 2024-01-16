@@ -42,3 +42,16 @@ function closeForm2() {
   let forma = document.querySelector(".edit-users__form");
   forma.style.display = "none";
 }
+// Dodajte funkcije za otvaranje i zatvaranje mobilnog menija
+function openMobileMenu() {
+  document.getElementById("mobileMenu").style.display = "block";
+}
+
+function closeMobileMenu() {
+  document.getElementById("mobileMenu").style.display = "none";
+}
+
+// Dodajte event listener za hamburger ikonu
+document
+  .getElementById("mobileMenuBtn")
+  .addEventListener("click", openMobileMenu);

@@ -24,24 +24,96 @@
         </div>
         <ul class="header__menu">
           <li><a href="index.html#proizvodi">Proizvodi</a></li>
-          <li><a href="#admin__links">Admin</a></li>
+          <li><a href="admin.html">Admin</a></li>
           <li><a href="about-us.html">O nama</a></li>
           <li><a href="#" onclick="openForm()">Prijavite se</a></li>
         </ul>
         <div class="menu-cart">
           <ul class="header__menu-mobile">
             <li>
-              <img src="../assets/menu.svg" alt="menu" class="hamburger" />
+              <img
+                src="../assets/menu.svg"
+                alt="menu"
+                class="hamburger"
+                id="mobileMenuBtn"
+              />
             </li>
           </ul>
           <div class="cart">
-            <a href="cart.html"
-              ><img src="../assets/shopping-cart-icon.png" alt="cart"
-            /></a>
+            <a href="cart.html">
+              <img src="../assets/shopping-cart-icon.png" alt="cart" />
+            </a>
           </div>
         </div>
       </nav>
+
+      <div class="mobile-menu-container" id="mobileMenu">
+        <span class="close-btn" onclick="closeMobileMenu()">&times;</span>
+        <ul class="mobile-menu">
+          <li><a href="index.html#proizvodi">Proizvodi</a></li>
+          <li><a href="admin.html">Admin</a></li>
+          <li><a href="about-us.html">O nama</a></li>
+          <li><a href="#" onclick="openForm()">Prijavite se</a></li>
+        </ul>
+      </div>
     </header>
+
+    <div>
+      <div class="login__popup" id="popup">
+        <form action="#" class="form__container" id="prijava">
+          <h1>Prijava</h1>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+
+          <label for="password"><b>Lozinka</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            required
+          />
+          <div>
+            <button type="button" onclick="closeForm()" class="btn">
+              Prijavite se
+            </button>
+            <button type="button" class="btn" onclick="closeForm()">
+              Nazad
+            </button>
+          </div>
+          <p onclick="openReg()">Registrujte se</p>
+        </form>
+        <div>
+          <form id="registracija" style="display: none" class="form__container">
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" required /><br />
+
+            <label for="prezime">Prezime:</label>
+            <input type="text" id="prezime" required /><br />
+
+            <label for="datumRodjenja">Datum rođenja:</label>
+            <input type="date" id="datumRodjenja" required /><br />
+
+            <label for="adresa">Adresa:</label>
+            <input type="text" id="adresa" required /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /><br />
+
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" required /><br />
+
+            <label for="korisnickoIme">Korisničko ime:</label>
+            <input type="text" id="korisnickoIme" required /><br />
+
+            <label for="lozinka">Lozinka:</label>
+            <input type="password" id="lozinka" required /><br />
+
+            <button type="submit" class="btn" id="submit">Potvrdi</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <section class="admin">
       <div class="admin__deo">
         <h2>Dobrodosao nazad admine</h2>
@@ -138,6 +210,7 @@
         </ul>
       </div>
     </footer>
+
     <script src="../js/index.js"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";

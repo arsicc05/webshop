@@ -45,6 +45,33 @@
   max-width: 212px;
   margin-top: 30px;
 }
+.ocenjivanje {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.star-rating {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.star-rating span {
+  display: inline-block;
+  margin-right: 5px;
+  color: gray;
+}
+
+.star-rating span:hover,
+.star-rating span.active {
+  color: #ffcc00;
+}
+.brojOcena {
+  list-style: none;
+  font-size: 24px;
+}
 @media only screen and (max-width: 1024px) {
   .product {
     display: flex;

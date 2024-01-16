@@ -246,6 +246,7 @@
     <div class="after__footer">
       <p>Made by FTN &copy;</p>
     </div>
+
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
       import {
@@ -289,7 +290,14 @@
         var telefon = document.getElementById("telefon").value;
         var korisnickoIme = document.getElementById("korisnickoIme").value;
         var lozinka = document.getElementById("lozinka").value;
-
+        if (korisnickoIme.length < 5) {
+          alert("Korisničko ime mora imati barem 5 karaktera.");
+          return;
+        }
+        if (lozinka.length < 8) {
+          alert("Lozinka mora imati barem 8 karaktera.");
+          return;
+        }
         var korisnik = {
           ime: ime,
           prezime: prezime,
